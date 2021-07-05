@@ -134,7 +134,7 @@ table {
             width: 50px;
 
             &::before {
-                content: '⬇';
+                content: '↘';
                 width: 10px;
                 height: 10px;
                 position: absolute;
@@ -147,7 +147,7 @@ table {
             width: 50px;
 
             &::before {
-                content: '⬆';
+                content: '↗';
                 width: 10px;
                 height: 10px;
                 position: absolute;

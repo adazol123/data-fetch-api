@@ -186,7 +186,7 @@ table td {
   width: 50px;
 }
 .wrapper .crypto-button-price .red::before {
-  content: "⬇";
+  content: "↘";
   width: 10px;
   height: 10px;
   position: absolute;
@@ -198,7 +198,7 @@ table td {
   width: 50px;
 }
 .wrapper .crypto-button-price .green::before {
-  content: "⬆";
+  content: "↗";
   width: 10px;
   height: 10px;
   position: absolute;
