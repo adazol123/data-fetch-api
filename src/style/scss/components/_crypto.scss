@@ -37,6 +37,11 @@ table {
     top: -1px;
     z-index: 999;
 
+    .input {
+        display: flex;
+        align-items: center;
+    }
+
     input {
         width: calc(100% - 64px);
         border-top-left-radius: 8px;
@@ -46,14 +51,18 @@ table {
 
         position: relative;
 
+        border-right: none;
+
     }
     
     button {
+        
         width: 64px;
         min-height: 42px;
-        
+        border-left: none;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
+        color: #888;
     }
 }
 

@@ -104,6 +104,10 @@ table td {
   top: -1px;
   z-index: 999;
 }
+.form .input {
+  display: flex;
+  align-items: center;
+}
 .form input {
   width: calc(100% - 64px);
   border-top-left-radius: 8px;
@@ -111,12 +115,15 @@ table td {
   min-height: 42px;
   padding: 0.5rem 1rem;
   position: relative;
+  border-right: none;
 }
 .form button {
   width: 64px;
   min-height: 42px;
+  border-left: none;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  color: #888;
 }
 
 .crypto-home-title {
