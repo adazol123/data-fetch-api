@@ -1,0 +1,158 @@
+.coin-image {
+    height: 10px;
+    img {
+        width: 32px;
+    }
+}
+tbody {
+    
+     td:not(:nth-last-child(1)){
+        padding-right: 1rem;
+        font-weight: 700;
+    }
+}
+table {
+    thead {
+        padding-bottom: 2rem;
+    }
+    th {
+        text-align: left;
+        font-size: x-large;
+        padding: 2rem 0.5rem;
+    }
+    td {
+        font-weight: 200;
+        padding: 0.5rem;
+    }
+    min-width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.form {
+    max-width: 800px ;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+
+    input {
+        width: calc(100% - 64px);
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        min-height: 42px;
+        padding: 0.5rem 1rem;
+}
+    button {
+        width: 64px;
+        min-height: 42px;
+        
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+}
+
+.crypto-home-title{
+    margin: 1rem 0 1rem 1rem;
+    // width: 100px;
+
+}
+
+.crypto-button-container  {
+
+    min-height: 42px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    position: relative;
+    max-width: 800px ;
+
+    
+}
+.wrapper {
+    background-color: #222;
+    min-height: 42px;
+    width: 100%;
+    // max-width: 800px ;
+    padding:  0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+
+
+
+    .crypto-button-price {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .crypto-button-left {
+        img{
+            width: 24px;
+            border-radius: 100%;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            -ms-border-radius: 100%;
+            -o-border-radius: 100%;
+
+}
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .crypto-button-name {
+        min-width: 120px;
+
+        .crypto-symbol{
+            font-size: xx-small;
+            font-weight: 200;
+            color: #AAA;
+        }
+    }
+    .crypto-button-price {
+        min-width: 120px;
+        display: flex;
+        justify-content: space-between;
+
+        .price-change{
+            font-size: xx-small;
+            letter-spacing: 0.04em;
+            font-weight: 200;
+            
+        }
+        .red {
+            color: rgb(250, 42, 111);
+            position: relative;
+            width: 50px;
+
+            &::before {
+                content: '⬇';
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                right: 0;
+            }
+        }
+        .green {
+            color: rgb(125, 243, 135);
+            position: relative;
+            width: 50px;
+
+            &::before {
+                content: '⬆';
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                right: 0;
+            }
+
+        }
+    }
+}

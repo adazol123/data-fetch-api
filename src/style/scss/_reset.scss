@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+ body {
+    background-color: #111;
+    color: #EEE;
+    transition: background-color 0.4s ease;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -ms-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+a:active, a:hover, a:focus {
+    color: greenyellow;
+}
+
+input, button {
+    border-style: none;
+    outline-style: none;
+    background-color: rgba($color: #FFF, $alpha: 0.1);
+    color: white;
+
+    border: 0.2px solid #555;
+}
+button {
+    cursor: pointer;
+    
+}

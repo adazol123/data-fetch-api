@@ -1,0 +1,32 @@
+.nav_links {
+    display: inline-flex;
+    align-items: center;
+    // width: 100%;
+    gap: 1rem;
+    min-height: 42px;
+}
+
+.nav_header {
+
+    &_wrapper {
+        display: flex;
+        align-items: center;
+        width: auto;
+        justify-content: space-between;
+        margin: 0 1rem;
+    }
+    h3 {
+        width: 56px;
+    }
+    
+    .cta {
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-style: none;
+    }
+}
+
