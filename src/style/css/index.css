@@ -99,6 +99,10 @@ table td {
   max-width: 800px;
   margin: 0 auto;
   padding: 0.5rem 1rem;
+  position: sticky;
+  background: #111;
+  top: -1px;
+  z-index: 999;
 }
 .form input {
   width: calc(100% - 64px);
@@ -106,6 +110,7 @@ table td {
   border-bottom-left-radius: 8px;
   min-height: 42px;
   padding: 0.5rem 1rem;
+  position: relative;
 }
 .form button {
   width: 64px;
@@ -115,7 +120,7 @@ table td {
 }
 
 .crypto-home-title {
-  margin: 1rem 0 1rem 1rem;
+  margin: 1rem 0 1rem 0rem;
 }
 
 .crypto-button-container {

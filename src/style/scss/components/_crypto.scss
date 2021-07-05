@@ -32,6 +32,10 @@ table {
     max-width: 800px ;
     margin: 0 auto;
     padding: 0.5rem 1rem;
+    position: sticky;
+    background: #111;
+    top: -1px;
+    z-index: 999;
 
     input {
         width: calc(100% - 64px);
@@ -39,7 +43,11 @@ table {
         border-bottom-left-radius: 8px;
         min-height: 42px;
         padding: 0.5rem 1rem;
-}
+
+        position: relative;
+
+    }
+    
     button {
         width: 64px;
         min-height: 42px;
@@ -50,7 +58,7 @@ table {
 }
 
 .crypto-home-title{
-    margin: 1rem 0 1rem 1rem;
+    margin: 1rem 0 1rem 0rem;
     // width: 100px;
 
 }

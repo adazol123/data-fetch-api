@@ -21,10 +21,12 @@ const Crypto = () => {
     // console.log(coins)
     return (
         <div>
-            <h2 className='crypto-home-title'>Crypto</h2>
             <div className='form' >
-                <input type="text" value={filter} onChange={(event) => setFilter(prev => event.target.value)}/>
-                <button >Search</button>
+                <h2 className='crypto-home-title'>Crypto</h2>
+                <div className="input">
+                    <input type="text" value={filter} onChange={(event) => setFilter(prev => event.target.value)}/>
+                    <button >Search</button>
+                </div>
             </div>
             <div className="crypto-button-container">
                 {coins && coins
