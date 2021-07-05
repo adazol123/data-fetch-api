@@ -8,7 +8,7 @@ const Crypto = () => {
 
 
     useEffect(() => {
-        axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=php&order=market_cap_desc&per_page=50&page=1&sparkline=false')
+        axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=php&order=market_cap_desc&per_page=100&page=1&sparkline=false')
             .then(response => response.data)
             .then(data => {
                 setCoins(prev => data)
@@ -24,8 +24,10 @@ const Crypto = () => {
             <div className='form' >
                 <h2 className='crypto-home-title'>Markets</h2>
                 <div className="input">
-                    <input type="text" value={filter} onChange={(event) => setFilter(prev => event.target.value)}/>
-                    <button >Search</button>
+                    <input type="text"
+                     placeholder='Search coin'
+                     value={filter} onChange={(event) => setFilter(prev => event.target.value)}/>
+                    <button onClick={(event) => setFilter(prev => '')} >{filter.length > 0? 'Cancel' : 'Search'}</button>
                 </div>
             </div>
             <div className="crypto-button-container">
