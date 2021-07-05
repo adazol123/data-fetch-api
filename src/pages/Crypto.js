@@ -22,7 +22,7 @@ const Crypto = () => {
     return (
         <div>
             <div className='form' >
-                <h2 className='crypto-home-title'>Crypto</h2>
+                <h2 className='crypto-home-title'>Markets</h2>
                 <div className="input">
                     <input type="text" value={filter} onChange={(event) => setFilter(prev => event.target.value)}/>
                     <button >Search</button>
