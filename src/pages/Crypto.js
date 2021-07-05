@@ -74,7 +74,7 @@ const COIN_BUTTON = ( {id, name, symbol, image, current_price, price_change }) =
                         {price_change.toFixed(2)}%
                     </p> 
                 </div>
-                ➡ 
+                <div className="arrow">›</div> 
             </div>
             
         </div>
