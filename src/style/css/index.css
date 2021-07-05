@@ -129,7 +129,7 @@ table td {
 
 .wrapper {
   background-color: #222;
-  min-height: 42px;
+  min-height: calc(42px * 1.5);
   width: 100%;
   padding: 0 1rem;
   display: flex;
@@ -154,7 +154,7 @@ table td {
   gap: 1rem;
 }
 .wrapper .crypto-button-left img {
-  width: 24px;
+  width: 32px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -171,6 +171,7 @@ table td {
 }
 .wrapper .crypto-button-price {
   min-width: 120px;
+  min-height: 32px;
   display: flex;
   justify-content: space-between;
 }
