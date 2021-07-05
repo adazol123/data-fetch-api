@@ -68,7 +68,7 @@ table {
 }
 .wrapper {
     background-color: #222;
-    min-height: calc(42px * 1.5);
+    min-height: calc(42px * 1.27);
     width: 100%;
     // max-width: 800px ;
     padding:  0 1rem;
@@ -111,7 +111,7 @@ table {
         min-width: 120px;
 
         .crypto-symbol{
-            font-size: xx-small;
+            font-size: x-small;
             font-weight: 200;
             color: #AAA;
         }
@@ -123,7 +123,7 @@ table {
         justify-content: space-between;
 
         .price-change{
-            font-size: xx-small;
+            font-size: x-small;
             letter-spacing: 0.04em;
             font-weight: 200;
             

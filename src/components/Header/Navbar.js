@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <header className='nav_header'>
             <div className="nav_header_wrapper">
-                <h3>API</h3>
+                <h4>API</h4>
                 <NavLink/>
                 <button className='cta'>CTA</button>
             </div>

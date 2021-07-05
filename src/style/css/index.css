@@ -52,7 +52,7 @@ button {
   justify-content: space-between;
   margin: 0 1rem;
 }
-.nav_header h3 {
+.nav_header h4 {
   width: 56px;
 }
 .nav_header .cta {
@@ -129,7 +129,7 @@ table td {
 
 .wrapper {
   background-color: #222;
-  min-height: calc(42px * 1.5);
+  min-height: calc(42px * 1.27);
   width: 100%;
   padding: 0 1rem;
   display: flex;
@@ -165,7 +165,7 @@ table td {
   min-width: 120px;
 }
 .wrapper .crypto-button-name .crypto-symbol {
-  font-size: xx-small;
+  font-size: x-small;
   font-weight: 200;
   color: #AAA;
 }
@@ -176,7 +176,7 @@ table td {
   justify-content: space-between;
 }
 .wrapper .crypto-button-price .price-change {
-  font-size: xx-small;
+  font-size: x-small;
   letter-spacing: 0.04em;
   font-weight: 200;
 }
