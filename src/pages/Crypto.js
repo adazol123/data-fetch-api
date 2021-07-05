@@ -31,7 +31,7 @@ const Crypto = () => {
                 {coins && coins
                             .filter(coins => coins.name.toLowerCase().includes(filter.toLowerCase()) || coins.symbol.toLowerCase().includes(filter.toLowerCase()) ||
                             coins.id.toLowerCase().includes(filter.toLowerCase()) )
-                            .slice(0, 20)
+                            .slice(0, 10)
                             .map(coin => (
                             <COIN_BUTTON
                                 id={coin.id}
@@ -48,6 +48,11 @@ const Crypto = () => {
                             />  
                                 
                 ))}
+                <div className="sub-footer">
+                    <p>Coins shown above are only sorted based on market cap </p>
+            <span>You can search for other coins in the search field above </span>
+                </div>
+
             </div>                 
 
         </div>

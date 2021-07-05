@@ -81,7 +81,30 @@ table {
     position: relative;
     max-width: 800px ;
 
-
+    .sub-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: sticky;
+        bottom: -50%;
+        width: 60%;
+        margin: 0 auto;
+        & > p{
+            font-size: small;
+            color: #888;
+            text-align: center;
+            display: flex;
+            margin: 0 auto 0 auto ;
+        }
+        & > span{
+            font-size: smaller;
+            color: #444;
+            text-align: center;
+            display: flex;
+            margin: 0 auto 1rem auto ;
+        }
+    }
+    
 }
     
 
@@ -89,7 +112,7 @@ table {
 
 .wrapper {
     background-color: #222;
-    min-height: calc(42px * 1.27);
+    min-height: calc(42px * 1.5);
     width: 100%;
     // max-width: 800px ;
     padding:  0 1rem;
@@ -138,22 +161,27 @@ table {
         }
     }
     .crypto-button-price {
-        min-width: 120px;
+        min-width: 140px;
         min-height: 32px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
+        h4 {
+            font-size: 0.85rem;
+        }
 
         .price-change{
             font-size: x-small;
             letter-spacing: 0.04em;
             font-weight: 200;
+            width: 100%;
+            text-align: right;
+            padding-right: 10px;
             
         }
         .red {
             color: rgb(250, 42, 111);
             position: relative;
-            width: 50px;
 
             &::before {
                 content: '↘';
@@ -166,7 +194,7 @@ table {
         .green {
             color: rgb(125, 243, 135);
             position: relative;
-            width: 50px;
+            
 
             &::before {
                 content: '↗';
@@ -195,11 +223,11 @@ table {
     justify-content: center;
     font-size: 1.5rem;
     transform-origin: 50% 50%;
-    transition: 0.4s ease-in-out;
-        -webkit-transition: 0.4s ease-in-out;
-        -moz-transition: 0.4s ease-in-out;
-        -ms-transition: 0.4s ease-in-out;
-        -o-transition: 0.4s ease-in-out;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
 
     &.show{
         transform: rotate(90deg);

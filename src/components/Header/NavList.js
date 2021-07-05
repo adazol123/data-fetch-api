@@ -1,12 +1,12 @@
 
-import {Link} from 'react-router-dom'
+import { NavLink as Links} from 'react-router-dom'
 
 
 const NavLink = () => (
     <nav className="nav_links">
-      <Link to='/'>Home</Link>
-      <Link to='/crypto' >Crypto</Link>
-      <Link to='/about'>About</Link>
+      <Links to='/'  exact>Home</Links>
+      <Links to='/crypto' >Crypto</Links>
+      <Links to='/about'>About</Links>
     </nav>
   );
 
