@@ -1,19 +1,25 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import axios from "axios"
 
 const Crypto = () => {
 
-    const [coins, setCoins] = useState([])
+    const [coins, setCoins] = useState(null)
     const [filter, setFilter] = useState('')
-
-
+    const currentButton = useRef(null)
+    const [recent, setRecent] = useState(null)
+    const page = () => {
+        if(filter) return (20) 
+        else return (10)
+    }
+    console.log(currentButton)
     useEffect(() => {
+        console.log('mouted')
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=php&order=market_cap_desc&per_page=100&page=1&sparkline=false')
             .then(response => response.data)
             .then(data => setCoins(prev => data))
             .catch(error => alert('Error Code: ', error))
-
-            return console.log('mouted')
+            
+            return console.log('unmouted')
     }, [])
     // console.log(coins)
     return (
@@ -28,14 +34,15 @@ const Crypto = () => {
                 </div>
             </div>
             <div className="crypto-button-container">
-                {coins && coins
+                {coins? coins
                             .filter(coins => coins.name.toLowerCase().includes(filter.toLowerCase()) || coins.symbol.toLowerCase().includes(filter.toLowerCase()) ||
                             coins.id.toLowerCase().includes(filter.toLowerCase()) )
-                            .slice(0, 10)
+                            .slice(0,page())
                             .map(coin => (
                             <COIN_BUTTON
                                 id={coin.id}
                                 key={coin.id}
+                                
                                 image={coin.image}
                                 name={coin.name}
                                 symbol={coin.symbol}
@@ -45,15 +52,18 @@ const Crypto = () => {
                                 high_24h={coin.high_24h}
                                 low_24h={coin.low_24h}
                                 market_cap={coin.market_cap}
+                                currentButton={currentButton}
                             />  
                                 
-                ))}
-                <div className="sub-footer">
-                    <p>Coins shown above are only sorted based on market cap </p>
-            <span>You can search for other coins in the search field above </span>
-                </div>
+                )) : <h2>Loading...</h2>}
 
-            </div>                 
+              {/* This section is currently on debugging mode when no search is found on the filter  */}
+            {currentButton.current? <div className="sub-footer">
+                    <p>Coins shown above are only sorted based on top 10 market cap </p>
+            <span>You can search for other coins in the search field above </span>
+                </div> : <div className="sub-footer"> <p>No results found</p> </div>}
+
+            </div>                  
 
         </div>
     )
@@ -62,7 +72,7 @@ const Crypto = () => {
 export default Crypto
 
 
-const COIN_BUTTON = ( props) => {
+const COIN_BUTTON = (props) => {
 
     const {
         id, 
@@ -75,6 +85,7 @@ const COIN_BUTTON = ( props) => {
         high_24h,
         low_24h,
         market_cap,
+        currentButton,
 
     } = props
     
@@ -89,7 +100,7 @@ const COIN_BUTTON = ( props) => {
     return (
         <>
         
-        <div className="wrapper" key={id} onClick={toggleHandler} >
+        <div className="wrapper" key={id} onClick={toggleHandler} ref={currentButton} >
             <div className="crypto-button-left">
                 <img src={image} alt={['icon', id].join('-')} /> 
                 <div className='crypto-button-name'>
