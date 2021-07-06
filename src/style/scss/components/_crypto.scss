@@ -37,6 +37,18 @@ table {
     top: -1px;
     z-index: 999;
 
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .status {
+            font-size: xx-small;
+            font-weight: 200;
+            color: #777;
+        }
+    }
+
     .input {
         display: flex;
         align-items: center;

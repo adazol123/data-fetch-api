@@ -107,6 +107,16 @@ table td {
   top: -1px;
   z-index: 999;
 }
+.form .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form .header .status {
+  font-size: xx-small;
+  font-weight: 200;
+  color: #777;
+}
 .form .input {
   display: flex;
   align-items: center;

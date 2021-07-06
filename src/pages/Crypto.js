@@ -1,154 +1,53 @@
 import { useState, useEffect, useRef } from "react"
 import axios from "axios"
-
+import DataContext from "../util/DataContext"
+import CoinFilter from "../components/Crypto/CoinFilter"
+import CoinTable from "../components/Crypto/CoinTable"
 const Crypto = () => {
 
-    const [coins, setCoins] = useState(null)
+    const [coins, setCoins] = useState([])
     const [filter, setFilter] = useState('')
+    const [selectedItem, setSelectedItem] = useState(null)
+    const [status, setStatus]= useState('')
     const currentButton = useRef(null)
-    const [recent, setRecent] = useState(null)
-    const page = () => {
-        if(filter) return (20) 
-        else return (10)
-    }
-    console.log(currentButton)
+
+    console.log('Current Selecter:', currentButton)
     useEffect(() => {
-        console.log('mouted')
+        setStatus(prev => 'Fetching Data from API ...')
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=php&order=market_cap_desc&per_page=100&page=1&sparkline=false')
             .then(response => response.data)
-            .then(data => setCoins(prev => data))
-            .catch(error => alert('Error Code: ', error))
+            .then(data => {
+                setStatus(prev => 'Fetching ...')
+                setCoins(prev => data)
+                setStatus(prev => 'Successfully fetched')})
+            .catch(err => alert('Error on Fetch: ', err))
             
             return console.log('unmouted')
     }, [])
     // console.log(coins)
     return (
-        <div>
+        <DataContext.Provider
+            value={{
+                coins,
+                filter,
+                setCoins,
+                setFilter,
+                selectedItem,
+                setSelectedItem,
+            }}>
             <div className='form' >
+                <div className='header'>
                 <h2 className='crypto-home-title'>Markets</h2>
-                <div className="input">
-                    <input type="text"
-                     placeholder='Search coin'
-                     value={filter} onChange={(event) => setFilter(prev => event.target.value)}/>
-                    <button onClick={(event) => setFilter(prev => '')}> <p>{filter.length > 0? 'Cancel' : ''}</p> </button>
+                <p className='status'>{status}</p>
                 </div>
+                
+                <CoinFilter />   
             </div>
-            <div className="crypto-button-container">
-                {coins? coins
-                            .filter(coins => coins.name.toLowerCase().includes(filter.toLowerCase()) || coins.symbol.toLowerCase().includes(filter.toLowerCase()) ||
-                            coins.id.toLowerCase().includes(filter.toLowerCase()) )
-                            .slice(0,page())
-                            .map(coin => (
-                            <COIN_BUTTON
-                                id={coin.id}
-                                key={coin.id}
-                                
-                                image={coin.image}
-                                name={coin.name}
-                                symbol={coin.symbol}
-                                current_price={coin.current_price}
-                                price_change={coin.price_change_percentage_24h}
-                                ath={coin.ath}
-                                high_24h={coin.high_24h}
-                                low_24h={coin.low_24h}
-                                market_cap={coin.market_cap}
-                                currentButton={currentButton}
-                            />  
-                                
-                )) : <h2>Loading...</h2>}
+            <CoinTable />
 
-              {/* This section is currently on debugging mode when no search is found on the filter  */}
-            {currentButton.current? <div className="sub-footer">
-                    <p>Coins shown above are only sorted based on top 10 market cap </p>
-            <span>You can search for other coins in the search field above </span>
-                </div> : <div className="sub-footer"> <p>No results found</p> </div>}
-
-            </div>                  
-
-        </div>
+        </DataContext.Provider>
     )
 }
 
 export default Crypto
 
-
-const COIN_BUTTON = (props) => {
-
-    const {
-        id, 
-        name, 
-        symbol, 
-        image, 
-        current_price, 
-        price_change,
-        ath,
-        high_24h,
-        low_24h,
-        market_cap,
-        currentButton,
-
-    } = props
-    
-    const [coinToggle, setCoinToggle] = useState(false)
-
-    const toggleHandler = () => {
-
-            setCoinToggle(prev => !prev)
-
-    }
-    
-    return (
-        <>
-        
-        <div className="wrapper" key={id} onClick={toggleHandler} ref={currentButton} >
-            <div className="crypto-button-left">
-                <img src={image} alt={['icon', id].join('-')} /> 
-                <div className='crypto-button-name'>
-                    <h4>{name}</h4>
-                    <p className='crypto-symbol'>{symbol.toUpperCase()}</p> 
-                </div>
-            </div>
-        
-            {/* <div className='crypto-button-graph'>Graph</div>  */}
-            <div className="crypto-button-price">
-                <div className='crypto-price'>
-                    <h4> ₱ {            
-                    current_price.toLocaleString("en-US", {maximumFractionDigits: 2, minimumFractionDigits: 2 })
-                    
-                    }</h4>
-                    <p className={[
-                        `price-change`, 
-                        price_change < 0? 'red' : 'green' ]
-                        .join(' ')}>
-                        {price_change.toFixed(2)}%
-                    </p> 
-                </div>
-                <div className={[`arrow`, coinToggle? 'show': null].join(' ')}><p>›</p> </div> 
-            </div>
-            
-        </div>
-        <div className={[`crypto-sub-button`, coinToggle? 'show': null].join(' ')}>
-            <div className='sub-top'>
-                <div>
-                    <h4>ATH</h4>
-                    <p>₱ {ath.toLocaleString()}</p>      
-                </div>
-                <div>
-                    <h4>High (24H)</h4>
-                    <p>₱ {high_24h.toLocaleString()}</p>      
-                </div>
-                <div>
-                    <h4>Low (24H)</h4>
-                    <p>₱ {low_24h.toLocaleString()}</p>      
-                </div>
-                <div>
-                    <h4>Market Cap</h4>
-                    <p>₱ {market_cap.toLocaleString()}</p>      
-                </div>
-            </div>
-            <div className="sub-bottom">
-                <button>More info</button>
-            </div>
-        </div>
-        </>
-)}
