@@ -36,17 +36,12 @@ const CoinModal = () => {
         visible: { 
             opacity: 1, 
             y: 0,
-            transition: {  duration: 0.6, ease: 'easeInOut', bounce: 0.3, type: "spring"},
+            transition: { duration: 0.6, ease: 'easeInOut'},
             
-        },
-        hidden: { 
-            opacity: 0, 
-            y: '200%',
-            transition: { delay: 0.2, duration: 0.4}
         },
         exit: { 
             opacity: 0, 
-            y: 300,
+            y: 1000,
             transition: { ease: 'easeInOut', duration: 0.4}
          },
       }
@@ -70,7 +65,7 @@ const CoinModal = () => {
             drag='y'
             dragConstraints={{ top: 0, bottom: 0}}
             dragElastic={0.8}
-            style={{ y }}
+            style={{ y, transition: '0.5s ease'}}
             onDragEnd={
                 () => {
                     if(y.get() > 180) setShowCoin(prev => false)
