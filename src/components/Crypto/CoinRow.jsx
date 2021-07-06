@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import DataContext from '../../util/DataContext'
+
 // import DataType from '../../util/DataType'
 
-const CoinRow = ({coins, onSelect}) => {
+const CoinRow = ({coins, onSelect}, ...props) => {
     const [coinToggle, setCoinToggle] = useState(false)
     const {setShowCoin} = useContext(DataContext)
     const toggleHandler = () => {
@@ -12,7 +13,7 @@ const CoinRow = ({coins, onSelect}) => {
     // console.log('Coin Row:', coins)
     return (
         <>
-        <div className="wrapper" 
+        <div className="wrapper"  
             onClick={toggleHandler}>
             <div className="crypto-button-left">
                 <img src={coins.image} alt={['icon', coins.id].join('-')} />
