@@ -105,7 +105,7 @@ table td {
   position: sticky;
   background: #111;
   top: -1px;
-  z-index: 999;
+  z-index: 100;
 }
 .form .header {
   display: flex;
@@ -347,6 +347,87 @@ table td {
   -moz-transition: 0.4s ease-in-out;
   -ms-transition: 0.4s ease-in-out;
   -o-transition: 0.4s ease-in-out;
+}
+
+.crypto-page {
+  position: relative;
+}
+
+.coin-container-modal {
+  background: #777;
+  position: fixed;
+  width: 100%;
+  height: 200%;
+  z-index: 101;
+  bottom: -150%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 1rem;
+}
+.coin-container-modal.up {
+  bottom: -120%;
+}
+.coin-container-modal.down {
+  bottom: -150%;
+}
+.coin-container-modal .modal-content {
+  position: relative;
+}
+.coin-container-modal .modal-content .indicator {
+  position: absolute;
+  background: #999;
+  height: 4px;
+  width: 8rem;
+  top: -1.1rem;
+  left: 0;
+  right: 0;
+  margin: 0.5rem auto;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.coin-container-modal .modal-content .head {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.coin-container-modal .modal-content .head .price div :nth-child(1) {
+  color: #31f5b4;
+}
+.coin-container-modal .modal-content .head .price div :nth-child(2) {
+  color: #AAA;
+}
+.coin-container-modal .modal-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.1rem;
+}
+.coin-container-modal .modal-content img {
+  height: 64px;
+}
+.coin-container-modal .modal-content .description {
+  overflow: hidden;
+  height: 38.8ch;
+}
+
+.modal-backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.crypto-modal, .modal-backdrop {
+  transition: 0.8s ease;
+  -webkit-transition: 0.8s ease;
+  -moz-transition: 0.8s ease;
+  -ms-transition: 0.8s ease;
+  -o-transition: 0.8s ease;
 }
 
 /*# sourceMappingURL=index.css.map */

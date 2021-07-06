@@ -35,7 +35,7 @@ table {
     position: sticky;
     background: #111;
     top: -1px;
-    z-index: 999;
+    z-index: 100;
 
     .header {
         display: flex;
@@ -319,3 +319,126 @@ table {
     -ms-transition: 0.4s ease-in-out;
     -o-transition: 0.4s ease-in-out;
 }
+
+.crypto-page {
+    position: relative;
+}
+
+.coin-container-modal {
+    background: #777;
+    position: fixed;
+    width: 100%;
+    height: 200%;
+    z-index: 101;
+    bottom: -150%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    //overflow: hidden;
+    padding: 1rem;
+    // transition: .4s ease;
+    // -webkit-transition: .4s ease;
+    // -moz-transition: .4s ease;
+    // -ms-transition: .4s ease;
+    // -o-transition: .4s ease;
+    &.up
+{
+            bottom: -120%;
+            // transition: .4s ease;
+            // -webkit-transition: .4s ease;
+            // -moz-transition: .4s ease;
+            // -ms-transition: .4s ease;
+            // -o-transition: .4s ease;
+}
+  &.down {
+            bottom: -150%;
+            // transition: .4s ease;
+            // -webkit-transition: .4s ease;
+            // -moz-transition: .4s ease;
+            // -ms-transition: .4s ease;
+            // -o-transition: .4s ease;
+}
+
+.modal-content {
+    position: relative;
+
+    .indicator {
+        position: absolute;
+        background: #999;
+        height: 4px;
+        width: 8rem;
+        top: -1.1rem;
+        left: 0;
+        right: 0;
+        margin: 0.5rem auto;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+    }
+    .head{
+        display: flex;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        .price {
+            div {
+                & :nth-child(1) {
+                    color: rgb(49, 245, 180);
+                }
+                & :nth-child(2) {
+                    color: #AAA;
+                }
+            }
+
+        }
+
+    }
+    h2{
+        font-size: 1.5rem;
+        margin-bottom: 0.1rem;
+    }
+    img {
+        height: 64px;
+        // padding: 0 auto;
+    }
+    div {
+        
+    }
+    .description {
+        overflow: hidden;
+        height: 38.8ch;
+    }
+}
+}
+
+.modal-backdrop {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.2);
+    // overflow: hidden;
+}
+
+.crypto-modal, .modal-backdrop {
+    transition: .8s ease;
+    -webkit-transition: .8s ease;
+    -moz-transition: .8s ease;
+    -ms-transition: .8s ease;
+    -o-transition: .8s ease;
+}
+
+// [data-modal='hide'] {
+//     &.crypto-modal{
+//         display: none;
+// }
+// }
+// [data-modal='show'] {
+//     &.crypto-modal{
+//         display: block;
+//         // overflow: hidden;
+//     }
+// }

@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
-import DataType from '../../util/DataType'
+import React, { useContext, useState } from 'react'
+import DataContext from '../../util/DataContext'
+// import DataType from '../../util/DataType'
 
-const CoinRow = ({coins}) => {
+const CoinRow = ({coins, onSelect}) => {
     const [coinToggle, setCoinToggle] = useState(false)
-    const toggleHandler = () => setCoinToggle(prev => !prev)
-    console.log(coins)
+    const {setShowCoin} = useContext(DataContext)
+    const toggleHandler = () => {
+        setCoinToggle(prev => !prev)
+        
+    }
+    // console.log('Coin Row:', coins)
     return (
         <>
-        <div className="wrapper" onClick={toggleHandler}>
+        <div className="wrapper" 
+            onClick={toggleHandler}>
             <div className="crypto-button-left">
                 <img src={coins.image} alt={['icon', coins.id].join('-')} />
                 <div className="crypto-button-name">
@@ -57,13 +63,16 @@ const CoinRow = ({coins}) => {
                 </div>
             </div>
             <div className="sub-bottom">
-                <button>More info</button>
+                <button onClick={() => {
+                    onSelect(coins)
+                    setShowCoin(prev => !prev)
+                    }}>More info</button>
             </div>
         </div>
         </>
     )
 }
 
-CoinRow.propTypes = DataType
+// CoinRow.propTypes = DataType
 
 export default CoinRow

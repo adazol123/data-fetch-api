@@ -1,17 +1,18 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 import DataContext from "../util/DataContext"
 import CoinFilter from "../components/Crypto/CoinFilter"
 import CoinTable from "../components/Crypto/CoinTable"
+import CoinModal from "../components/Crypto/CoinModal"
 const Crypto = () => {
 
     const [coins, setCoins] = useState([])
     const [filter, setFilter] = useState('')
     const [selectedItem, setSelectedItem] = useState(null)
     const [status, setStatus]= useState('')
-    const currentButton = useRef(null)
+    const [showCoin, setShowCoin] = useState(false)
 
-    console.log('Current Selecter:', currentButton)
+    console.log('Current Selecter:', selectedItem && selectedItem.id)
     useEffect(() => {
         setStatus(prev => 'Fetching Data from API ...')
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=php&order=market_cap_desc&per_page=100&page=1&sparkline=false')
@@ -34,7 +35,10 @@ const Crypto = () => {
                 setFilter,
                 selectedItem,
                 setSelectedItem,
+                showCoin, 
+                setShowCoin,
             }}>
+            <div className='crypto-page'>
             <div className='form' >
                 <div className='header'>
                 <h2 className='crypto-home-title'>Markets</h2>
@@ -44,6 +48,8 @@ const Crypto = () => {
                 <CoinFilter />   
             </div>
             <CoinTable />
+            <CoinModal />
+            </div>
 
         </DataContext.Provider>
     )
