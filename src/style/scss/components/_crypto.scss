@@ -407,7 +407,13 @@ table {
     }
     .description {
         overflow: hidden;
-        height: 38.8ch;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 20;
+        width: 90%;
+
+        white-space: wrap;
+        text-overflow: ellipsis;
     }
 }
 }

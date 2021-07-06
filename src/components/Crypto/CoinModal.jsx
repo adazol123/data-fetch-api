@@ -95,7 +95,10 @@ const CoinModal = () => {
                 </div>
                 
 
-            <p ref={description.current} className='description'> {dataLoading?   coinData.description.en : 'loading ...'}</p>
+            <p ref={description.current} className='description' dangerouslySetInnerHTML={{
+                __html: `${dataLoading? coinData.description.en : 'loading....'}`
+            }}> 
+             </p>
           
             </div>
 
