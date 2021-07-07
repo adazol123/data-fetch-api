@@ -364,6 +364,9 @@ table td {
   border-top-right-radius: 16px;
   padding: 1rem;
 }
+.coin-container-modal::before {
+  content: "Test";
+}
 .coin-container-modal.up {
   bottom: -120%;
 }

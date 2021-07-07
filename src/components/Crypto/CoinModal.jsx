@@ -19,7 +19,7 @@ const CoinModal = () => {
             .then(data => {
                 setDataLoading(false)
                 setCoinData(data)
-                console.log('Fetch:', coinData)
+                console.log('Fetch:', selectedItem.id)
                 setDataLoading(true)
             })
 

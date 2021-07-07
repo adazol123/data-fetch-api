@@ -1,15 +1,16 @@
 import {useContext} from 'react'
 import DataContext from '../../util/DataContext'
 import CoinRow from './CoinRow'
-import { motion, AnimatePresence } from 'framer-motion'
+import { LazyMotion, m } from 'framer-motion'
 
 const CoinTable = () => {
     const {coins, filter, setSelectedItem} = useContext(DataContext)
+
     const page = () => {
         if(filter) return (50) 
         else return (10)
     }
-
+    const loadFeatures = () => import('../../util/features.js').then(res => res.default)
     const container = {
         hidden: { opacity: 0, scale: 0},
         visible: { 
@@ -29,8 +30,8 @@ const CoinTable = () => {
 
     }
     return (
-        <AnimatePresence>
-        <motion.div
+        <LazyMotion features={loadFeatures}>
+        <m.div
          className="crypto-button-container"
          variants={container}
          initial='hidden'
@@ -41,13 +42,13 @@ const CoinTable = () => {
                 coins.id.toLowerCase().includes(filter.toLowerCase()) )
                 .slice(0,page())
                 .map((coin, index) => (
-                <motion.div key={index} variants={item}>
+                <m.div key={index} variants={item}>
                 <CoinRow 
                     coins={coin}
                     onSelect={(coin) => {
                         setSelectedItem(coin)
                 }} /> 
-                </motion.div>
+                </m.div>
                                 
             )) : <h2>Loading...</h2>}
 
@@ -56,8 +57,8 @@ const CoinTable = () => {
                 <p>Coins shown above are only sorted based on top 10 market cap </p>
                 <span>You can search for other coins in the search field above </span>
             </div>
-        </motion.div>
-        </AnimatePresence>
+        </m.div>
+        </LazyMotion>
     )
 }
 

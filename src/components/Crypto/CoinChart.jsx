@@ -14,22 +14,26 @@ import {
 import { format, parseISO } from "date-fns";
 
 const CoinChart = () => {
-  const { selectedItem} = useContext(DataContext);
+  const { selectedItem } = useContext(DataContext);
   const [prices, setPrices] = useState([]);
   const data = [];
   useEffect(() => {
-    axios
-      .get(
+    selectedItem && 
+    axios.get(
         `https://api.coingecko.com/api/v3/coins/${selectedItem.id}/market_chart?vs_currency=php&days=30&interval=daily`,
       )
       .then((response) => response.data)
-      .then((data) => setPrices((prev) => data.prices))
+      .then((data) => {
+        setPrices((prev) => data.prices)
+        console.log('Chart:',prices);
+      })
       .catch((error) => console.log("Coin Chart Error:", error));
+      
   }, [selectedItem]);
-  console.log(data);
+  
   
 
-  prices.map((price, index) => {
+  prices && prices.map((price, index) => {
     return data.push({
       date: new Date(price[0]).toISOString().substr(0, 10),
       time: new Date(price[0]).toLocaleTimeString(),
@@ -38,6 +42,7 @@ const CoinChart = () => {
   });
   return (
     <div>
+      <button >1 day</button>
       <ResponsiveContainer width="100%" height={200}>
         <AreaChart data={data}>
           <defs>
@@ -52,13 +57,6 @@ const CoinChart = () => {
             axisLine={true}
             tickLine={false}
             tickFormatter={() =>  ''}
-            // tickFormatter={(str) => {
-            //   const date = parseISO(str);
-            //   if (date.getDate() % 1 === 0) {
-            //     return format(date, "MMM, d");
-            //   }
-            //   return ''
-            // }}
           />
           <YAxis
             dataKey="value"
@@ -71,27 +69,6 @@ const CoinChart = () => {
           <CartesianGrid opacity="0.03" vertical={false} />
         </AreaChart>
       </ResponsiveContainer>
-
-      {/* {prices.map((price, index) => {
-                data.push({
-                    date: new Date(price[0]).toISOString().substr(0, 10),
-                    time: new Date(price[0]).toLocaleTimeString(),
-                    value: price[1].toLocaleString()
-                })           
-                return (
-                <React.Fragment key={index}>
-                    {data.map((price, index) => (
-                        <React.Fragment key={index}>
-                            
-                        <p>{price.date}</p>
-                        <p>{price.value}</p>
-                        </React.Fragment>
-                    ))}
-                </React.Fragment>
-            )})} */}
-
-      <p>{data.date}</p>
-      <p>{data.value}</p>
     </div>
   );
 };
