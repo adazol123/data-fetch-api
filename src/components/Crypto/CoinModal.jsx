@@ -68,7 +68,7 @@ const CoinModal = () => {
             drag='y'
             dragConstraints={{ top: 0, bottom: 0}}
             dragElastic={0.3}
-            style={{ y, transition: '0.4s linear', bottom: expand }}
+            style={{ y, transition: '0.5s ease-in-out', bottom: expand }}
             onDragEnd={
                 () => {
                     if(y.get() > 50 && y.get() < 280) {
