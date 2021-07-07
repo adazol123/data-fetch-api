@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../util/DataContext'
-import { useMotionValue, m, LazyMotion   } from 'framer-motion'
+import { useMotionValue, m, LazyMotion, domAnimation   } from 'framer-motion'
 import axios from 'axios'
 import CoinChart from './CoinChart'
 // import DataType from '../../util/DataType'
@@ -28,6 +28,8 @@ const CoinModal = () => {
     
 
     const loadFeatures = () => import('../../util/features.js').then(res => res.default)
+
+    
     const y = useMotionValue(0)
     const [expand, setExpand] = useState('down')
     const currency_format = {maximumFractionDigits: 2, minimumFractionDigits: 2 }
