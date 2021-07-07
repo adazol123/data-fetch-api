@@ -46,7 +46,7 @@ const CoinChart = () => {
               <stop offset="75%" stopColor="#2451B6" stopOpacity={0.05} />
             </linearGradient>
           </defs>
-          <Area dataKey="value" stroke="#2451B7" fill="url(#color)" />
+          <Area type='natural' dataKey="value" stroke="#2451B7" fill="url(#color)" />
           <XAxis
             dataKey="date"
             axisLine={true}
