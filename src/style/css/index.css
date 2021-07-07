@@ -236,7 +236,7 @@ table td {
   padding-right: 10px;
 }
 .wrapper .crypto-button-price .red {
-  color: #fa2a6f;
+  color: #f730aa;
   position: relative;
 }
 .wrapper .crypto-button-price .red::before {
@@ -247,7 +247,7 @@ table td {
   right: 0;
 }
 .wrapper .crypto-button-price .green {
-  color: #7df387;
+  color: #31f5b4;
   position: relative;
 }
 .wrapper .crypto-button-price .green::before {
@@ -441,6 +441,20 @@ table td {
   -moz-transition: 0.8s ease;
   -ms-transition: 0.8s ease;
   -o-transition: 0.8s ease;
+}
+
+.row-days {
+  display: flex;
+  align-items: center;
+  margin: 0.1rem 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.row-days button {
+  padding: 0.2rem 1.4rem;
+  background: none;
+  border-style: none;
 }
 
 /*# sourceMappingURL=index.css.map */

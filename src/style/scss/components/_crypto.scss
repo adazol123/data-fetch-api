@@ -192,7 +192,7 @@ table {
             
         }
         .red {
-            color: rgb(250, 42, 111);
+            color: rgb(247, 48, 170);
             position: relative;
 
             &::before {
@@ -204,7 +204,7 @@ table {
             }
         }
         .green {
-            color: rgb(125, 243, 135);
+            color: #31f5b4;
             position: relative;
             
 
@@ -432,14 +432,16 @@ table {
     -o-transition: .8s ease;
 }
 
-// [data-modal='hide'] {
-//     &.crypto-modal{
-//         display: none;
-// }
-// }
-// [data-modal='show'] {
-//     &.crypto-modal{
-//         display: block;
-//         // overflow: hidden;
-//     }
-// }
+.row-days {
+    display: flex;
+    align-items: center;
+    margin: 0.1rem 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    gap: 0.2rem;
+    button {
+        padding: 0.2rem 1.4rem;
+        background: none;
+        border-style: none;
+    }
+}
