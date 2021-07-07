@@ -407,6 +407,8 @@ table {
     }
 
     .description {
+        // position: absolute;
+        // bottom: 0;
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -421,11 +423,19 @@ table {
            pointer-events: none;
         }
     }
-    .test {
-        position: absolute;
-        bottom: 0;
-    }
+
 }
+}
+.test {
+    position: absolute;
+    bottom: 2%;
+    padding: 0.4rem 0;
+    width: calc(100% - 2rem);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
 }
 
 .modal-backdrop {

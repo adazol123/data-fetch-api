@@ -435,9 +435,17 @@ table td {
   color: #888;
   pointer-events: none;
 }
-.coin-container-modal .modal-content .test {
+
+.test {
   position: absolute;
-  bottom: 0;
+  bottom: 2%;
+  padding: 0.4rem 0;
+  width: calc(100% - 2rem);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 .modal-backdrop {

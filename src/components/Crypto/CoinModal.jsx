@@ -39,13 +39,13 @@ const CoinModal = () => {
         visible: { 
             opacity: 1, 
             y: 0,
-            transition: { duration: 0.4, ease: 'easeInOut'},
+            transition: { duration: 0.4, ease: 'linear'},
             
         },
         exit: { 
             opacity: 0, 
             y: 500,
-            transition: { ease: 'easeInOut', duration: 0.4}
+            transition: { ease: 'linear', duration: 0.4}
          },
       }
     return (
@@ -68,7 +68,7 @@ const CoinModal = () => {
             drag='y'
             dragConstraints={{ top: 0, bottom: 0}}
             dragElastic={0.3}
-            style={{ y, transition: '0.4s ease', bottom: expand }}
+            style={{ y, transition: '0.4s linear', bottom: expand }}
             onDragEnd={
                 () => {
                     if(y.get() > 50 && y.get() < 280) {
@@ -98,16 +98,14 @@ const CoinModal = () => {
 
             <CoinChart />
 
-            {/* <p ref={description.current} className='description' dangerouslySetInnerHTML={{
+            <p ref={description.current} className='description' dangerouslySetInnerHTML={{
                 __html: `${dataLoading? coinData && coinData.description.en : 'loading....'}`
             }}> 
-             </p> */}
+             </p>
 
           
             </div>
-            <p className='test'> 
-                 footer test
-             </p>
+            <button className="test"> Expand </button>
 
         </m.div>}
         </m.div>}
