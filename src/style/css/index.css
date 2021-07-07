@@ -357,24 +357,35 @@ table td {
   background: #333;
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 80%;
   z-index: 101;
-  bottom: -50%;
+  bottom: -40%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   padding: 1rem;
 }
 .coin-container-modal::before {
-  content: "Test";
+  content: "";
+  position: absolute;
+  bottom: -190%;
+  height: 200%;
+  width: 100%;
+  transform: translateX(-1rem);
+  background: #333;
+  -webkit-transform: translateX(-1rem);
+  -moz-transform: translateX(-1rem);
+  -ms-transform: translateX(-1rem);
+  -o-transform: translateX(-1rem);
 }
 .coin-container-modal.up {
-  bottom: -20%;
+  bottom: 0%;
 }
 .coin-container-modal.down {
-  bottom: -50%;
+  bottom: -30%;
 }
 .coin-container-modal .modal-content {
   position: relative;
+  height: 85%;
 }
 .coin-container-modal .modal-content .indicator {
   position: absolute;
@@ -423,6 +434,10 @@ table td {
 .coin-container-modal .modal-content .description a {
   color: #888;
   pointer-events: none;
+}
+.coin-container-modal .modal-content .test {
+  position: absolute;
+  bottom: 0;
 }
 
 .modal-backdrop {

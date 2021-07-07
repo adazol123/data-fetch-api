@@ -27,7 +27,7 @@ const CoinModal = () => {
     }, [selectedItem])
     
 
-    const loadFeatures = () => import('../../util/features.js').then(res => res.default)
+    const loadFeatures = () => import('../../util/features-animate.js').then(res => res.default)
 
     
     const y = useMotionValue(0)
@@ -49,7 +49,7 @@ const CoinModal = () => {
          },
       }
     return (
-        <LazyMotion features={loadFeatures} >
+        <LazyMotion features={loadFeatures}  >
         {showCoin && <m.div
 
         data-modal='show' className='crypto-modal'>
@@ -68,19 +68,19 @@ const CoinModal = () => {
             drag='y'
             dragConstraints={{ top: 0, bottom: 0}}
             dragElastic={0.3}
-            style={{ y, transition: '0.4s ease'}}
+            style={{ y, transition: '0.4s ease', bottom: expand }}
             onDragEnd={
                 () => {
                     if(y.get() > 50 && y.get() < 280) {
-                        setExpand(prev => 'down')}
+                        setExpand(prev => '-40%')}
                     else if(y.get() > 280) {
                         setShowCoin(prev => false)
-                        setExpand(prev => 'down')}
-                    else if(y.get() < -50) setExpand(prev => 'up')
+                        setExpand(prev => '-40%')}
+                    else if(y.get() < -50) setExpand(prev => '0%')
                     // else setExpand(prev => 'down')
                 }
               }
-        className={['coin-container-modal', expand].join(' ')}>
+        className='coin-container-modal'>
             <div className="modal-content">
                 <div className="indicator"/>
                 <div className='head'>
@@ -98,12 +98,16 @@ const CoinModal = () => {
 
             <CoinChart />
 
-            <p ref={description.current} className='description' dangerouslySetInnerHTML={{
+            {/* <p ref={description.current} className='description' dangerouslySetInnerHTML={{
                 __html: `${dataLoading? coinData && coinData.description.en : 'loading....'}`
             }}> 
-             </p>
+             </p> */}
+
           
             </div>
+            <p className='test'> 
+                 footer test
+             </p>
 
         </m.div>}
         </m.div>}
