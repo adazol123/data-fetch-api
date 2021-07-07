@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../util/DataContext'
-import { motion, useMotionValue, AnimatePresence   } from 'framer-motion'
+import { useMotionValue, m, LazyMotion   } from 'framer-motion'
 import axios from 'axios'
 import CoinChart from './CoinChart'
 // import DataType from '../../util/DataType'
@@ -27,7 +27,7 @@ const CoinModal = () => {
     }, [selectedItem])
     
 
-
+    const loadFeatures = () => import('../../util/features.js').then(res => res.default)
     const y = useMotionValue(0)
     const [expand, setExpand] = useState('down')
     const currency_format = {maximumFractionDigits: 2, minimumFractionDigits: 2 }
@@ -47,8 +47,8 @@ const CoinModal = () => {
          },
       }
     return (
-        <AnimatePresence >
-        {showCoin && <motion.div
+        <LazyMotion features={loadFeatures} >
+        {showCoin && <m.div
 
         data-modal='show' className='crypto-modal'>
         <div className="modal-backdrop"
@@ -58,7 +58,7 @@ const CoinModal = () => {
             }}
         />
         {selectedItem &&
-        <motion.div 
+        <m.div 
         initial='exit'
         animate='visible'
         exit='exit'
@@ -103,9 +103,9 @@ const CoinModal = () => {
           
             </div>
 
-        </motion.div>}
-        </motion.div>}
-        </AnimatePresence>
+        </m.div>}
+        </m.div>}
+        </LazyMotion>
     )
 }
 
