@@ -42,11 +42,11 @@ const CoinChart = () => {
         <AreaChart data={data}>
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2451B6" stopOpacity={0.2} />
-              <stop offset="75%" stopColor="#2451B6" stopOpacity={0.05} />
+              <stop offset="0%" stopColor="#31f5b4" stopOpacity={0.2} />
+              <stop offset="75%" stopColor="#31f5b4" stopOpacity={0.05} />
             </linearGradient>
           </defs>
-          <Area type='natural' dataKey="value" stroke="#2451B7" fill="url(#color)" />
+          <Area type='natural' dataKey="value" stroke="#31f5b4" fill="url(#color)" />
           <XAxis
             dataKey="date"
             axisLine={true}

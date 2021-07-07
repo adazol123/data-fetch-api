@@ -23,7 +23,7 @@ a {
 }
 
 a:active, a:hover, a:focus {
-  color: greenyellow;
+  color: #31f5b4;
 }
 
 input, button {
@@ -45,7 +45,7 @@ button {
   min-height: 42px;
 }
 .nav_links .active {
-  color: greenyellow;
+  color: #31f5b4;
 }
 
 .nav_header_wrapper {
