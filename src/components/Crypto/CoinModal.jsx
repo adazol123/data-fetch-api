@@ -37,17 +37,17 @@ const CoinModal = () => {
         visible: { 
             opacity: 1, 
             y: 0,
-            transition: { duration: 0.6, ease: 'easeInOut'},
+            transition: { duration: 0.4, ease: 'easeInOut'},
             
         },
         exit: { 
             opacity: 0, 
-            y: 1000,
+            y: 500,
             transition: { ease: 'easeInOut', duration: 0.4}
          },
       }
     return (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence >
         {showCoin && <motion.div
 
         data-modal='show' className='crypto-modal'>
@@ -65,8 +65,8 @@ const CoinModal = () => {
         variants={variants}
             drag='y'
             dragConstraints={{ top: 0, bottom: 0}}
-            dragElastic={0.8}
-            style={{ y, transition: '0.5s ease'}}
+            dragElastic={0.3}
+            style={{ y, transition: '0.4s ease'}}
             onDragEnd={
                 () => {
                     if(y.get() > 50 && y.get() < 280) {
