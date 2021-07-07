@@ -67,7 +67,7 @@ const CoinChart = () => {
             tickCount={10}
             hide
           />
-          <Tooltip  content={<CustomTooltop/>}/>
+          <Tooltip  content={<CustomTooltop/>} position={{y: -20}}/>
           <CartesianGrid opacity="0.03" vertical={false} />
         </AreaChart>
       </ResponsiveContainer>
