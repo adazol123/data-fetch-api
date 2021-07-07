@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../util/DataContext'
 import { motion, useMotionValue, AnimatePresence   } from 'framer-motion'
 import axios from 'axios'
+import CoinChart from './CoinChart'
 // import DataType from '../../util/DataType'
 
 const CoinModal = () => {
@@ -13,12 +14,12 @@ const CoinModal = () => {
 
     useEffect(() =>{
         selectedItem &&
-        axios.get(`https://api.coingecko.com/api/v3/coins/${ selectedItem.id }?localization=false`)
+        axios.get(`https://api.coingecko.com/api/v3/coins/${ selectedItem.id }?localization=true`)
             .then(response => response.data)
             .then(data => {
                 setDataLoading(false)
                 setCoinData(data)
-                console.log('Fetch:', selectedItem.id)
+                console.log('Fetch:', coinData)
                 setDataLoading(true)
             })
 
@@ -68,9 +69,13 @@ const CoinModal = () => {
             style={{ y, transition: '0.5s ease'}}
             onDragEnd={
                 () => {
-                    if(y.get() > 180) setShowCoin(prev => false)
-                    if(y.get() < -50) setExpand(prev => 'up')
-                    else setExpand(prev => 'down')
+                    if(y.get() > 50 && y.get() < 280) {
+                        setExpand(prev => 'down')}
+                    else if(y.get() > 280) {
+                        setShowCoin(prev => false)
+                        setExpand(prev => 'down')}
+                    else if(y.get() < -50) setExpand(prev => 'up')
+                    // else setExpand(prev => 'down')
                 }
               }
         className={['coin-container-modal', expand].join(' ')}>
@@ -88,10 +93,11 @@ const CoinModal = () => {
 
 
                 </div>
-                
+
+            <CoinChart />
 
             <p ref={description.current} className='description' dangerouslySetInnerHTML={{
-                __html: `${dataLoading? coinData.description.en : 'loading....'}`
+                __html: `${dataLoading? coinData && coinData.description.en : 'loading....'}`
             }}> 
              </p>
           
