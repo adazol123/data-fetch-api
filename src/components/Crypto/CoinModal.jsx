@@ -69,7 +69,6 @@ const CoinModal = () => {
             drag='y'
             dragConstraints={{ top: 0, bottom: 0}}
             dragElastic={1}
-            dragMomentum={true}
 
             style={{ y, transition: '0.5s ease-in-out', bottom: expand }}
             onDrag={
