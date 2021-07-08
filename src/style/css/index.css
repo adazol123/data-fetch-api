@@ -544,4 +544,17 @@ table td {
   border: #777 1px solid;
 }
 
+article {
+  width: 100vw;
+}
+
+img[alt=sample-assets] {
+  width: 100%;
+}
+
+.about {
+  background-color: #262626;
+  min-height: 100vh;
+}
+
 /*# sourceMappingURL=index.css.map */

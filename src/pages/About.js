@@ -2,18 +2,23 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Markdown from 'markdown-to-jsx'
 
+
 const About = () => {
     const [markdown, setMarkdown] = useState('')
+    const readme = 'README.md'
     useEffect(() => {
-        axios.get('https://raw.githubusercontent.com/adazol123/data-fetch-api/master/README.md')
-            .then(response => response.data)
-            .then(data => setMarkdown(prev => data.toString()))
+        import(`../md/${readme}`)
+            .then( res => {
+                fetch(res.default)
+                    .then(res => res.text())
+                    .then(res => setMarkdown(prev => res))
+            })
+            .catch(error => console.log(error))
     },[])
     console.log(markdown)
     return (
-        <div>
-            <h2 className='crypto-home-title'>About</h2>
-            <Markdown>{markdown}</Markdown>
+        <div className='about'>
+            <Markdown options={{ wrapper: 'article' }}>{markdown}</Markdown>
         </div>
     )
 }
