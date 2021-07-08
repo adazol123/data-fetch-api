@@ -57,7 +57,7 @@ const CoinModal = () => {
         <div className="modal-backdrop"
             onClick={() => {
                 setShowCoin(prev => !prev)
-                setExpand(prev => 'down')
+                setExpand(prev => '-40%')
             }}
         />
         {selectedItem &&
