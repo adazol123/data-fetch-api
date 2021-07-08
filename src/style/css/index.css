@@ -545,16 +545,25 @@ table td {
 }
 
 article {
-  width: 100vw;
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+article:nth-child(3) {
+  gap: 2rem;
 }
 
 img[alt=sample-assets] {
-  width: 100%;
+  width: calc(100% );
 }
 
 .about {
   background-color: #262626;
   min-height: 100vh;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=index.css.map */

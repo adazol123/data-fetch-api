@@ -15,7 +15,7 @@ const About = () => {
             })
             .catch(error => console.log(error))
     },[])
-    console.log(markdown)
+    // console.log(markdown)
     return (
         <div className='about'>
             <Markdown options={{ wrapper: 'article' }}>{markdown}</Markdown>
