@@ -36,7 +36,8 @@ const CoinTable = () => {
          className="crypto-button-container"
          variants={container}
          initial='hidden'
-         animate='visible'
+         animate={coins? 'visible' : 'hidden'}
+         exit='hidden'
          >
             {coins? coins
                 .filter(coins => coins.name.toLowerCase().includes(filter.toLowerCase()) || coins.symbol.toLowerCase().includes(filter.toLowerCase()) ||

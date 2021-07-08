@@ -29,7 +29,7 @@ const CoinTrending = () => {
                 >
                 <motion.div 
                 drag='x' 
-                dragConstraints={{ left: -850, right: 20}}
+                dragConstraints={{ left: -700, right: 20}}
                 className="trends-row">
 
 
