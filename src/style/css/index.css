@@ -503,7 +503,7 @@ table td {
   z-index: 50;
 }
 .trends-list::after {
-  right: 0;
+  right: -1%;
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);

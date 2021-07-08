@@ -48,6 +48,7 @@ const CoinModal = () => {
             transition: { ease: 'linear', duration: 0.4}
          },
       }
+      
     return (
         <LazyMotion features={loadFeatures}  >
         {showCoin && <m.div
@@ -67,17 +68,22 @@ const CoinModal = () => {
         variants={variants}
             drag='y'
             dragConstraints={{ top: 0, bottom: 0}}
-            dragElastic={0.3}
+            dragElastic={1}
+            dragMomentum={true}
+
             style={{ y, transition: '0.5s ease-in-out', bottom: expand }}
-            onDragEnd={
+            onDrag={
                 () => {
-                    if(y.get() > 50 && y.get() < 280) {
+                    if( expand === '0%' && y.get() > 140 ) {
                         setExpand(prev => '-40%')}
-                    else if(y.get() > 280) {
+                    if(expand === '-40%' && y.get() > 220) {
                         setShowCoin(prev => false)
-                        setExpand(prev => '-40%')}
-                    else if(y.get() < -50) setExpand(prev => '0%')
+                        // setExpand(prev => '-40%')
+                    }
+                    if( expand === '-40%' && y.get() < -50) 
+                        setExpand(prev => '0%')
                     // else setExpand(prev => 'down')
+                    // console.log(expand, showCoin, y.get())
                 }
               }
         className='coin-container-modal'>

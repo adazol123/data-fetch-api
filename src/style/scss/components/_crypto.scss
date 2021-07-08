@@ -495,7 +495,7 @@ table {
         z-index: 50;
     }
     &::after {
-        right: 0;
+        right: -1%;
         transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
