@@ -75,16 +75,18 @@ const CoinModal = () => {
                 () => {
                     if( expand === '0%' && y.get() > 140 ) {
                         setExpand(prev => '-40%')}
-                    if(expand === '-40%' && y.get() > 220) {
-                        setShowCoin(prev => false)
-                        // setExpand(prev => '-40%')
-                    }
                     if( expand === '-40%' && y.get() < -50) 
                         setExpand(prev => '0%')
                     // else setExpand(prev => 'down')
                     // console.log(expand, showCoin, y.get())
                 }
               }
+              onDragEnd = { () => {
+                if(expand === '-40%' && y.get() > 220) {
+                    setShowCoin(prev => false)
+                    setExpand(prev => '-40%')
+                }
+              }}
         className='coin-container-modal'>
             <div className="modal-content">
                 <div className="indicator"/>
