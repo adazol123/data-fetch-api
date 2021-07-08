@@ -27,7 +27,7 @@ const CoinChart = () => {
         .then((response) => response.data)
         .then((data) => {
           setPrices((prev) => data.prices);
-          console.log("Chart:", prices);
+          // console.log("Chart:", prices);
         })
         .catch((error) => console.log("Coin Chart Error:", error));
   }, [selectedItem, days]);

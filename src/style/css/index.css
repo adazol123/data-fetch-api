@@ -480,4 +480,67 @@ table td {
   border-style: none;
 }
 
+.trends-title {
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
+
+.trends-list {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  height: 120px;
+  margin: 1rem auto;
+  width: calc(100%);
+  overflow-x: hidden;
+}
+.trends-list::before, .trends-list::after {
+  content: "";
+  width: 2rem;
+  height: 100%;
+  background: linear-gradient(to right, #111, #111, rgba(0, 0, 0, 0));
+  position: absolute;
+  z-index: 50;
+}
+.trends-list::after {
+  right: 0;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+.trends-list img {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.trends-list h4 {
+  color: #31f5b4;
+  font-weight: 400;
+}
+.trends-list p {
+  color: #777;
+  font-size: 0.7rem;
+}
+.trends-list .trends-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.2rem 0;
+}
+.trends-list .trends-row div {
+  background: #333;
+  padding: 1rem 1rem;
+  min-width: 150px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  box-shadow: 0 1px 0px 0px #111;
+  border: #777 1px solid;
+}
+
 /*# sourceMappingURL=index.css.map */

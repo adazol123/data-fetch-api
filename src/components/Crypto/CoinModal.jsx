@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../util/DataContext'
-import { useMotionValue, m, LazyMotion, domAnimation   } from 'framer-motion'
+import { useMotionValue, m, LazyMotion} from 'framer-motion'
 import axios from 'axios'
 import CoinChart from './CoinChart'
 // import DataType from '../../util/DataType'

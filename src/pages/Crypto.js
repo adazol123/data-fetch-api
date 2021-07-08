@@ -4,6 +4,7 @@ import DataContext from "../util/DataContext"
 import CoinFilter from "../components/Crypto/CoinFilter"
 import CoinTable from "../components/Crypto/CoinTable"
 import CoinModal from "../components/Crypto/CoinModal"
+import CoinTrending from "../components/Crypto/CoinTrending"
 const Crypto = () => {
 
     const [coins, setCoins] = useState([])
@@ -11,7 +12,6 @@ const Crypto = () => {
     const [selectedItem, setSelectedItem] = useState(null)
     const [status, setStatus]= useState('')
     const [showCoin, setShowCoin] = useState(false)
-
     console.log('Current Selecter:', selectedItem && selectedItem.id)
     useEffect(() => {
         setStatus(prev => 'Fetching Data from API ...')
@@ -25,7 +25,6 @@ const Crypto = () => {
             
             return console.log('unmouted')
     }, [])
-    // console.log(coins)
     return (
         <DataContext.Provider
             value={{
@@ -39,6 +38,8 @@ const Crypto = () => {
                 setShowCoin,
             }}>
             <div className='crypto-page'>
+
+               {coins && <CoinTrending />}
             <div className='form' >
                 <div className='header'>
                 <h2 className='crypto-home-title'>Markets</h2>
