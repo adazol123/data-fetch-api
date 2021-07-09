@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import {motion} from 'framer-motion'
+import {motion, AnimatePresence} from 'framer-motion'
 import DataContext from '../../util/DataContext'
 
 const CoinTrending = () => {
@@ -21,20 +21,48 @@ const CoinTrending = () => {
             .catch(error => console.log('Trends Error:', error))
     },[setSelectedItem])
     // console.log(trendsData)
+    const container = {
+        hidden: { opacity: 1, x: 0},
+        visible: { 
+            opacity: 1, 
+            x: 0,
+            transition: {
+                delayChildren: 0.2,
+                staggerChildren: 0.3,
+                
+            }
+        },
+        
+    }
+    const item = {
+        hidden: { x: 100, opacity: 0},
+        visible: { x: 0, opacity: 1},
+
+
+    }
     return (
+        <AnimatePresence exitBeforeEnter>
         <React.Fragment>
             <h2 className='trends-title'>Trends</h2>
             <div className="trends-list"
                
                 >
                 <motion.div 
+                initial='hidden'
+                animate={trendsData? 'visible' : 'hidden'}
+                variants={container}
+                exit='hidden'
                 drag='x' 
-                dragConstraints={{ left: -700, right: 20}}
+                dragConstraints={{ left: (-110 * 7), right: 30}}
+                style={{ width: 800 }}
                 className="trends-row">
 
 
                 {trendsData.map(data => (
-                    <motion.div  key={data.item.id}>
+                    <motion.div  
+                        key={data.item.id}
+                        variants={item}
+                        >
                         <img src={data.item.small} alt={data.item.id} />
                         <h4> ₱ {(data.item.price_btc * btcPrice).toPrecision(5)}</h4>
                         <p>{data.item.symbol}</p>
@@ -43,6 +71,7 @@ const CoinTrending = () => {
                 </motion.div>
             </div>
         </React.Fragment>
+        </AnimatePresence>
     )
 }
 
