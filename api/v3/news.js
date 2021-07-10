@@ -1,7 +1,7 @@
 var request = require('request')
 
 
-let _NEWS_URL = `https://newsapi.org/v2/everything?q=crypto&sortBy=publishedAt&apiKey=${process.env.REACT_APP_NEWS_KEY}`
+let _NEWS_URL = `https://newsapi.org/v2/top-headlines?category=business&country=ph&apiKey=${process.env.REACT_APP_NEWS_KEY}`
 
 
 module.exports = (req, res) => {
