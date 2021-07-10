@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
 import DataContext from '../../util/DataContext'
 import useSWR from 'swr'
-const fetcher = async (...args) => fetch(...args).then(response => response.json())
+const fetcher = (...args) => fetch(...args).then(response => response.json())
 
 const CoinTrending = () => {
     const {setSelectedItem} = useContext(DataContext)

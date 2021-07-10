@@ -6,7 +6,7 @@ import CoinTable from "../components/Crypto/CoinTable"
 import CoinModal from "../components/Crypto/CoinModal"
 import CoinTrending from "../components/Crypto/CoinTrending"
 import useSWR from 'swr'
-const fetcher = async (...args) => fetch(...args).then(response => response.json())
+const fetcher = (...args) => fetch(...args).then(response => response.json())
 const Crypto = () => {
 
     const [coins, setCoins] = useState([])
