@@ -35,7 +35,9 @@ Code for the web application available on [Github](https://github.com/adazol123/
 * Framer Motion
 
 * Vercel
----
+
+--- 
+
 #### Packages
 
  - express
