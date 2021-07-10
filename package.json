@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "date-fns": "^2.22.1",
+    "dotenv": "^10.0.0",
     "framer-motion": "^4.1.17",
     "markdown-to-jsx": "^7.1.3",
     "prop-types": "^15.7.2",
@@ -18,7 +19,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start && sass --watch src/style/scss:src/style/css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

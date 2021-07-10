@@ -566,4 +566,60 @@ img[alt=sample-assets] {
   justify-content: center;
 }
 
+.home-container {
+  margin: 0 1em;
+}
+.home-container .head {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.home-container .home-content {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.data-home {
+  margin: 1em auto;
+  max-width: 30rem;
+  background-color: #333;
+  padding: 2em 1em;
+  border-radius: 8px;
+  border-color: #555;
+  border: 1px solid;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+.data-home img {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  max-width: 100%;
+  object-fit: cover;
+}
+.data-home .date {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.data-home .date h5 {
+  color: #31f5b4;
+  letter-spacing: 0.04em;
+}
+.data-home .date p {
+  color: #777;
+  font-size: 0.7rem;
+}
+.data-home h3 {
+  color: #DDD;
+}
+.data-home p {
+  color: #888;
+}
+
 /*# sourceMappingURL=index.css.map */
