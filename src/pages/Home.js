@@ -1,11 +1,9 @@
 
 import { useState, useEffect} from 'react'
 import axios from 'axios'
-require('dotenv').config()
 
 const Home = () => {
     const [news, setNews] = useState([])
-    const [titleEN, setTitleEN] = useState('')
     useEffect(() => {
         axios.get('/api/v3/news')
         .then(response => response.data)
@@ -16,7 +14,7 @@ const Home = () => {
                 console.log('fetched!')
             } else console.log('Error on news')
         })
-    },[])
+    },[news])
     console.log(news)
     return (
         <div className='home-container'>
@@ -35,10 +33,10 @@ const Home = () => {
 
                         <p>{publishedAt.slice(0,10)}</p>
                     </div>
-                    {urlToImage && <img src={urlToImage} alt={index} />}
+                    {urlToImage && <img src={urlToImage} alt={source.name} />}
                     
                     <h3>{title.toLocaleString('en-US')}</h3>
-                    <p>{description}</p>
+                    <p dangerouslySetInnerHTML={description}></p>
                     
 
                 </div>
