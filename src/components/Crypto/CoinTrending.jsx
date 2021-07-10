@@ -23,7 +23,7 @@ const CoinTrending = () => {
     },[setSelectedItem])
 
     useEffect(() => {
-        setTrendsData(prev => data.coins)
+        setTrendsData(prev => data && data.coins)
         // axios.get('api/v3/trending')
         //     .then(response => response.data)
         //     .then( data => setTrendsData(prev => data.coins))
