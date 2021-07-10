@@ -37,14 +37,14 @@ const CoinTrending = () => {
             x: 0,
             transition: {
                 delayChildren: 0.2,
-                staggerChildren: 0.3,
+                staggerChildren: 0.2,
                 
             }
         },
         
     }
     const item = {
-        hidden: { x: 100, opacity: 0},
+        hidden: { x: 10, opacity: 0},
         visible: { x: 0, opacity: 1},
 
 

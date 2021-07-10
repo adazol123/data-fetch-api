@@ -18,16 +18,16 @@ const CoinTable = () => {
             scale: 1,
             transition: {
                 delayChildren: 0.2,
-                staggerChildren: 0.3,
+                staggerChildren: 0.2,
                 
             }
         },
         
     }
     const item = {
-        hidden: { y: 20, opacity: 0},
+        hidden: { y: 10, opacity: 0},
         visible: { y: 0, opacity: 1},
-        exit: { y: 20, opacity: 0},
+        exit: { y: 10, opacity: 0},
 
     }
     return (
