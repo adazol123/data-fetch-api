@@ -37,3 +37,19 @@ button {
     cursor: pointer;
     
 }
+
+.about {
+    a {
+        color: #31f5b4;
+    }
+    li {
+        margin-left: 1rem;
+    }
+    p {
+        color: #888;
+        font-size: 0.83rem;
+    }
+    article {
+        margin-bottom: 3em;
+    }
+}

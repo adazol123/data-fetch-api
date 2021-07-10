@@ -38,6 +38,20 @@ button {
   cursor: pointer;
 }
 
+.about a {
+  color: #31f5b4;
+}
+.about li {
+  margin-left: 1rem;
+}
+.about p {
+  color: #888;
+  font-size: 0.83rem;
+}
+.about article {
+  margin-bottom: 3em;
+}
+
 .nav_links {
   display: inline-flex;
   align-items: center;
