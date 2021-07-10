@@ -36,7 +36,7 @@ const CoinTable = () => {
 
     const {data, error} = useSWR('/api/v3/markets', fetcher ,{
         revalidateOnFocus: false,
-        refreshInterval: 50000
+        refreshInterval: 9000000
     })
     
     useEffect(() => {
