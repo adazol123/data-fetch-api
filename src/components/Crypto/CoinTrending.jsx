@@ -15,7 +15,7 @@ const CoinTrending = () => {
             .catch(error => console.log('Trends Error:', error))
     },[setSelectedItem])
     useEffect(() => {
-        axios.get('https://api.coingecko.com/api/v3/search/trending')
+        axios.get('api/v3/trending')
             .then(response => response.data)
             .then( data => setTrendsData(prev => data.coins))
             .catch(error => console.log('Trends Error:', error))

@@ -15,7 +15,7 @@ const Crypto = () => {
     console.log('Current Selecter:', selectedItem && selectedItem.id)
     useEffect(() => {
         setStatus(prev => 'Fetching Data from API ...')
-        axios.get('/api/markets')
+        axios.get('/api/v3/markets')
             .then(response => response.data)
             .then(data => {
                 setStatus(prev => 'Fetching ...')
