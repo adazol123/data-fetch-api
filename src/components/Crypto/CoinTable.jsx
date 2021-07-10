@@ -1,10 +1,13 @@
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import DataContext from '../../util/DataContext'
 import CoinRow from './CoinRow'
 import { LazyMotion, m } from 'framer-motion'
+import useSWR from 'swr'
+const fetcher = (...args) => fetch(...args).then(response => response.json())
+
 
 const CoinTable = () => {
-    const {coins, filter, setSelectedItem} = useContext(DataContext)
+    const {coins, setCoins, filter, setSelectedItem, setStatus} = useContext(DataContext)
 
     const page = () => {
         if(filter) return (50) 
@@ -30,6 +33,31 @@ const CoinTable = () => {
         exit: { y: 10, opacity: 0},
 
     }
+
+    const {data, error} = useSWR('/api/v3/markets', fetcher ,{
+        revalidateOnFocus: false,
+        refreshInterval: 50000
+    })
+    
+    useEffect(() => {
+        setStatus(prev => 'Fetching Data from API ...')
+        setCoins( prev => data && data)
+        console.log('Fetching ...')
+        // axios.get('/api/v3/markets')
+        //     .then(response => response.data)
+        //     .then(data => {
+        //         setStatus(prev => 'Fetching ...')
+        //         setCoins(prev => data)
+        //         setStatus(prev => 'Successfully fetched')})
+        //     .catch(err => alert('Error on Fetch: ', err))
+            
+        //     return console.log('unmouted')
+
+        }, [data])
+        
+    
+    if (!data) return <div >Loading...</div> 
+    if (error) return <div >Error on initial fetch</div> 
     return (
         <LazyMotion features={loadFeatures}>
         <m.div
