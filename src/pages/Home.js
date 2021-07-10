@@ -7,7 +7,7 @@ const Home = () => {
     const [news, setNews] = useState([])
     const [titleEN, setTitleEN] = useState('')
     useEffect(() => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=ph&category=business&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+        axios.get('/api/v3/news')
         .then(response => response.data)
         .then(data => {
             if (data.status === 'ok') {
