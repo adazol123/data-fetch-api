@@ -69,7 +69,7 @@ const CoinTrending = () => {
                 className="trends-row">
 
 
-                {trendsData.map(data => (
+                {trendsData && trendsData.map(data => (
                     <motion.div  
                         key={data.item.id}
                         variants={item}
