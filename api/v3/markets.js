@@ -1,6 +1,6 @@
 var request = require('request')
 
-let _COIN_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=php&order=market_cap_desc&per_page=5000&page=1&sparkline=false'
+let _COIN_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=php&order=market_cap_desc&per_page=200&page=1&sparkline=false'
 
 
 module.exports = (req, res) => {

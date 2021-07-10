@@ -2,11 +2,18 @@ import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
 import DataContext from '../../util/DataContext'
+import useSWR from 'swr'
+const fetcher = async (...args) => fetch(...args).then(response => response.json())
 
 const CoinTrending = () => {
     const {setSelectedItem} = useContext(DataContext)
     const [trendsData, setTrendsData] = useState([])
     const [btcPrice, setBtcPrice] = useState(1651325)
+
+    const {data, error} = useSWR('/api/v3/trending', fetcher ,{
+        revalidateOnFocus: false,
+        refreshInterval: 50000
+    })
     useEffect(() => {
         axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=php')
             .then(response => response.data)
@@ -14,12 +21,14 @@ const CoinTrending = () => {
             .then( price => setBtcPrice( prev => price))
             .catch(error => console.log('Trends Error:', error))
     },[setSelectedItem])
+
     useEffect(() => {
-        axios.get('api/v3/trending')
-            .then(response => response.data)
-            .then( data => setTrendsData(prev => data.coins))
-            .catch(error => console.log('Trends Error:', error))
-    },[setSelectedItem])
+        setTrendsData(prev => data.coins)
+        // axios.get('api/v3/trending')
+        //     .then(response => response.data)
+        //     .then( data => setTrendsData(prev => data.coins))
+        //     .catch(error => console.log('Trends Error:', error))
+    },[data])
     // console.log(trendsData)
     const container = {
         hidden: { opacity: 1, x: 0},
@@ -40,6 +49,8 @@ const CoinTrending = () => {
 
 
     }
+    if (!data) return <div >Loading...</div> 
+    if (error) return <div >Error on initial fetch</div> 
     return (
         <AnimatePresence exitBeforeEnter>
         <React.Fragment>
