@@ -14,7 +14,7 @@ const Home = () => {
                 console.log('fetched!')
             } else console.log('Error on news')
         })
-    },[news])
+    },[])
     console.log(news)
     return (
         <div className='home-container'>
