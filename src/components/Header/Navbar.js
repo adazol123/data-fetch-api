@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <header className='nav_header'>
             <div className="nav_header_wrapper">
-                <h4>adazolhub</h4>
+               <div class='logo-beta'>EN</div>
                 <NavLink/>
                 <button className='cta'>Status <span></span></button>
             </div>
@@ -14,3 +14,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+

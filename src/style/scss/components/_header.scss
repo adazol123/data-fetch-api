@@ -1,22 +1,50 @@
+
+
 .nav_links {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    // width: 100%;
+    //width: 100%;
     font-weight: 200;
     gap: 1rem;
     min-height: 42px;
-    font-size: 0.75rem;
-    a {
-        width: 2rem;
-    }
+    font-size: 1rem;
+
+    a
+        {
+        width: 2.8rem;
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        transition: 0.2s ease;
+        -webkit-transition: 0.2s ease;
+        -moz-transition: 0.2s ease;
+        -ms-transition: 0.2s ease;
+        -o-transition: 0.2s ease;
+}
     .active {
+        flex-basis: 1;
+        justify-self: center;
         color: #5af0bec7;
         font-weight: 400;
-    }
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+}
 }
 
 .nav_header {
-
+    .logo-beta {
+        color: #777;
+        display: flex;
+        align-items: center;
+        width: 56px;
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+    }
     &_wrapper {
         display: flex;
         align-items: center;
@@ -26,8 +54,8 @@
     }
     h4 {
         width: 56px;
-        font-weight: 500;
-        font-size: 0.7rem;
+        font-weight: 400;
+        font-size: 0.6rem;
     }
     
     .cta {
