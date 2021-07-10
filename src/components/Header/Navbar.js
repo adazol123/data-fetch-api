@@ -5,9 +5,9 @@ const Navbar = () => {
     return (
         <header className='nav_header'>
             <div className="nav_header_wrapper">
-                <h4>API</h4>
+                <h4>adazolhub</h4>
                 <NavLink/>
-                <button className='cta'>CTA</button>
+                <button className='cta'>Status <span></span></button>
             </div>
         </header>
     )

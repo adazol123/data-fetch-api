@@ -41,6 +41,19 @@ button {
 .about a {
   color: #31f5b4;
 }
+.about h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 0.2em;
+  margin-bottom: 0.7em;
+}
+.about h2 span {
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+}
 .about li {
   margin-left: 1rem;
 }
@@ -50,16 +63,23 @@ button {
 }
 .about article {
   margin-bottom: 3em;
+  margin-top: 2rem;
 }
 
 .nav_links {
   display: inline-flex;
   align-items: center;
+  font-weight: 200;
   gap: 1rem;
   min-height: 42px;
+  font-size: 0.75rem;
+}
+.nav_links a {
+  width: 2rem;
 }
 .nav_links .active {
-  color: #31f5b4;
+  color: #5af0bec7;
+  font-weight: 400;
 }
 
 .nav_header_wrapper {
@@ -71,15 +91,41 @@ button {
 }
 .nav_header h4 {
   width: 56px;
+  font-weight: 500;
+  font-size: 0.7rem;
 }
 .nav_header .cta {
-  padding: 0.5rem 1rem;
+  padding: 0.5em 0;
   border-radius: 4px;
+  padding-left: 1em;
+  width: 56px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-style: none;
+  font-size: 0.5rem;
+  letter-spacing: 0.04em;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.2em;
+  background: #191919;
+  position: relative;
+}
+.nav_header .cta::before {
+  content: "";
+  width: 0.7em;
+  height: 0.7em;
+  position: absolute;
+  background: #31f5b4c2;
+  right: 1em;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
 }
 
 .coin-image {

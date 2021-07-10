@@ -1,10 +1,10 @@
 <h1 align="center" >
   <a href="https://www.adazolhub.com">
-    <img src="https://firebasestorage.googleapis.com/v0/b/djlozada.appspot.com/o/mdx%2Freadme-logo.svg?alt=media&token=1a4bad4d-0168-40be-9082-efb5fa244915" height="24"/>
+    <img src="https://firebasestorage.googleapis.com/v0/b/djlozada.appspot.com/o/mdx%2Freadme-logo.svg?alt=media&token=1a4bad4d-0168-40be-9082-efb5fa244915" height="64"/>
   </a>
 
 </h1>
-<h2 align='center'> Crypto </h2>
+<h2 align='center'> | Crypto <span>adazolhub</span> </h2>
 
 <h4><code> Data Fetch (API) </code></h4>
 
@@ -12,7 +12,7 @@ A web application that tracks cryptocurrency assets information like current pri
 
 
 
-This web application was built for demo and educational purposes, to explore and understand data fetching with API or Application Programming Interface
+This web application was built for demo and educational purposes, to explore and understand data fetching with API or Application Programming Interface as well Serverless function as the backend server
 
 Code for the web application available on [Github](https://github.com/adazol123/data-fetch-api)
 
@@ -65,8 +65,9 @@ Code for the web application available on [Github](https://github.com/adazol123/
 
 ---
 
-### License [MIT](https://www.github.com/adazol123)
+#### License [MIT](https://www.github.com/adazol123)
 
-### Authors [Daniel Lozada](https://www.github.com/adazol123)
+#### Authors [Daniel Lozada](https://www.github.com/adazol123)
+#### Website [www.adazolhub.com](https://www.adazolhub.com)
 
 
