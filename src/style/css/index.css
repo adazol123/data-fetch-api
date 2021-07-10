@@ -587,6 +587,11 @@ img[alt=sample-assets] {
   max-width: 800px;
   margin: 0 auto;
 }
+.home-container .head span {
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: #777;
+}
 .home-container .home-content {
   display: grid;
   flex-wrap: wrap;

@@ -3,6 +3,12 @@
     .head {
         max-width: 800px;
         margin: 0 auto;
+
+        span {
+            font-size: 1.2rem;
+            font-weight: 200;
+            color: #777;
+        }
     }
 
     .home-content {
