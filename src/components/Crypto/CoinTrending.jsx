@@ -12,7 +12,7 @@ const CoinTrending = () => {
 
     const {data, error} = useSWR('/api/v3/trending', fetcher ,{
         revalidateOnFocus: false,
-        refreshInterval: 50000
+        refreshInterval: 100
     })
     useEffect(() => {
         axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=php')
