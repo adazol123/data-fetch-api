@@ -36,7 +36,7 @@ const Home = () => {
                     {urlToImage && <img src={urlToImage} alt={source.name} />}
                     
                     <h3>{title.toLocaleString('en-US')}</h3>
-                    <p dangerouslySetInnerHTML={{__html: `${description}`}}></p>
+                    {description && <p dangerouslySetInnerHTML={{__html: `${description}`}}></p>}
                     
 
                 </div>
