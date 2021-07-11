@@ -37,23 +37,15 @@ const CoinTable = () => {
     const {data, error} = useSWR('/api/v3/markets', fetcher ,{
         revalidateOnFocus: false,
         refreshInterval: 9000000
+        
     })
-    
     useEffect(() => {
         setStatus(prev => 'Fetching Data from API ...')
         setCoins( prev => data && data)
         console.log('Fetching ...')
-        // axios.get('/api/v3/markets')
-        //     .then(response => response.data)
-        //     .then(data => {
-        //         setStatus(prev => 'Fetching ...')
-        //         setCoins(prev => data)
-        //         setStatus(prev => 'Successfully fetched')})
-        //     .catch(err => alert('Error on Fetch: ', err))
-            
-        //     return console.log('unmouted')
 
-        }, [data])
+    }, [data])
+
         
     
     if (!data) return <div >Loading...</div> 

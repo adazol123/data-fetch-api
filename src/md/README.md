@@ -14,7 +14,7 @@ A web application that tracks cryptocurrency assets information like current pri
 
 This web application was built for demo and educational purposes, to explore and understand data fetching with API or Application Programming Interface as well Serverless function as the backend server
 
-Code for the web application available on [Github](https://github.com/adazol123/data-fetch-api)
+Source Code for this web application is available on [Github Repository](https://github.com/adazol123/data-fetch-api)
 
 ---
 
@@ -34,7 +34,7 @@ Code for the web application available on [Github](https://github.com/adazol123/
 
 * Vercel
 
---- 
+---
 
 #### Packages
 
