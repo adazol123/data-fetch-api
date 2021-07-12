@@ -34,19 +34,18 @@ const CoinTable = () => {
 
     }
     
+    // let proxy = 'http://localhost:8000'
     const {data, error} = useSWR(`/api/v3/markets`, fetcher ,{
         revalidateOnFocus: false,
         refreshInterval: 9000000
         
     })
-    useEffect(  ()  => {
+    useEffect(() => {
         setStatus(prev => 'Fetching Data from API ...')
         setCoins( prev => data && data)
         console.log('Fetching ...')
 
-    }, [])
-
-
+    }, [data])
 
         
     
