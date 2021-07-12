@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import NavLink from './NavList'
 
 const Navbar = () => {
@@ -8,7 +7,8 @@ const Navbar = () => {
             <div className="nav_header_wrapper">
                <div className='logo-beta'>EN</div>
                 <NavLink/>
-                <a href='https://entrepreneursportfolio-com.statuspal.io/'
+                <a href='https://status.entrepreneursportfolio.com/'
+                rel='noreferrer'
                 target='_blank'
                 >
                 <button className='cta'> 
