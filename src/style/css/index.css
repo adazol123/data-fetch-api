@@ -648,6 +648,8 @@ img[alt=sample-assets] {
 .about {
   background-color: #262626;
   min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: center;
@@ -681,7 +683,7 @@ img[alt=sample-assets] {
 @supports (display: grid) {
   .home-container .home-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 800px));
     grid-gap: 1em;
   }
 }

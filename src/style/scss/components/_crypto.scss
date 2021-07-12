@@ -81,6 +81,7 @@ table {
 .crypto-home-title{
     margin: 1rem 0 1rem 0rem;
     // width: 100px;
+    
 
 }
 
@@ -561,6 +562,8 @@ img[alt="sample-assets"] {
 .about {
     background-color: #262626;
     min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: center;

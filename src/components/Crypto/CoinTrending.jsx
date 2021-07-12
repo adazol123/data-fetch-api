@@ -51,7 +51,7 @@ const CoinTrending = () => {
 
 
     }
-    if (!data) return <div >Loading...</div> 
+    if (!data) return <div className="trends-list"> Loading...</div> 
     if (error) return <div >Error on initial fetch</div> 
     return (
         <AnimatePresence exitBeforeEnter>

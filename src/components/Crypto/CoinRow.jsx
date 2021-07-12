@@ -30,14 +30,14 @@ const CoinRow = ({coins, onSelect}, ...props) => {
             <div className="crypto-button-price">
                 <div className="crypto-price">
                     <h4> ₱
-                        {coins.current_price.toLocaleString("en-US", {maximumFractionDigits: 2, minimumFractionDigits: 2 })}
+                        {coins.current_price && coins.current_price.toLocaleString("en-US", {maximumFractionDigits: 2, minimumFractionDigits: 2 })}
                     </h4>
                     <p
                         className={[
                         `price-change`, 
                         coins.price_change_percentage_24h < 0? 'red' : 'green' ]
                         .join(' ')}>
-                            {coins.price_change_percentage_24h.toFixed(2)}%
+                            {coins.price_change_percentage_24h && coins.price_change_percentage_24h.toFixed(2)}%
                     </p>
                 </div>
                 <div className={[`arrow`, coinToggle? 'show': null].join(' ')}><p>›</p></div>
@@ -52,15 +52,15 @@ const CoinRow = ({coins, onSelect}, ...props) => {
                 </div>
                 <div>
                     <h4>High (24H)</h4>
-                    <p>₱ {coins.high_24h.toLocaleString()}</p>      
+                    <p>₱ {coins.high_24h && coins.high_24h.toLocaleString()}</p>      
                 </div>
                 <div>
                     <h4>Low (24H)</h4>
-                    <p>₱ {coins.low_24h.toLocaleString()}</p>      
+                    <p>₱ {coins.low_24h && coins.low_24h.toLocaleString()}</p>      
                 </div>
                 <div>
                     <h4>Market Cap</h4>
-                    <p>₱ {coins.market_cap.toLocaleString()}</p>      
+                    <p>₱ {coins.market_cap && coins.market_cap.toLocaleString()}</p>      
                 </div>
             </div>
             <div className="sub-bottom">

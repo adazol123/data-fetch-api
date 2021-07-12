@@ -33,8 +33,7 @@ const CoinTable = () => {
         exit: { y: 10, opacity: 0},
 
     }
-    
-    // let proxy = 'http://localhost:8000'
+
     const {data, error} = useSWR(`/api/v3/markets`, fetcher ,{
         revalidateOnFocus: false,
         refreshInterval: 9000000
@@ -48,7 +47,7 @@ const CoinTable = () => {
     }, [data])
 
         
-    
+    console.log(coins)
     if (!data) return <div >Loading...</div> 
     if (error) return <div >Error on initial fetch</div> 
     return (
