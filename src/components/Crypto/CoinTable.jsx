@@ -39,12 +39,14 @@ const CoinTable = () => {
         refreshInterval: 9000000
         
     })
-    const Fetch = async => useEffect(  ()  => {
+    useEffect(  ()  => {
         setStatus(prev => 'Fetching Data from API ...')
         setCoins( prev => data && data)
         console.log('Fetching ...')
 
     }, [])
+
+
 
         
     
