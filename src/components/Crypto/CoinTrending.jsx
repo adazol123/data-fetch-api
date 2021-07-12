@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
 import DataContext from '../../util/DataContext'
 import useSWR from 'swr'
+
+
 const fetcher = (...args) => fetch(...args).then(response => response.json())
 
 const CoinTrending = () => {
@@ -10,7 +12,7 @@ const CoinTrending = () => {
     const [trendsData, setTrendsData] = useState([])
     const [btcPrice, setBtcPrice] = useState(1651325)
 
-    const {data, error} = useSWR('/api/v3/trending', fetcher ,{
+    const {data, error} = useSWR('/api/v3/trends', fetcher ,{
         revalidateOnFocus: false,
         refreshInterval: 9000000
     })

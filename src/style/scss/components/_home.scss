@@ -1,22 +1,42 @@
 .home-container {
     margin: 0 1em;
+    // max-width: 800px;
     .head {
         max-width: 800px;
         margin: 0 auto;
 
+        h2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .4em;
+        }
         span {
-            font-size: 1.2rem;
+            font-size: 0.7rem;
             font-weight: 200;
             color: #777;
         }
     }
 
-    .home-content {
-        display: grid;
-        flex-wrap: wrap;
+    .home-content { 
+        display: flex;
         justify-content: center;
+        flex-direction: column;
         margin: 0 auto;
-    max-width: 800px;
+        max-width: 1000px;
+        // min-height: 3em;
+        
+    }
+    @supports (display: grid) {
+        .home-content {
+            display: grid;
+            grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+            grid-gap: 1em;
+            // grid-auto-rows: max-content;
+            // grid-auto-flow: dense;
+            // break-inside: avoid;
+            // grid-auto-rows: 40px;
+        }
     }
 }
 .data-home {
@@ -29,36 +49,30 @@
             -o-border-radius: 4px;
             max-width: 100%;
             object-fit: cover;
+            min-height: 3em;
     }
     .date {
         display: flex;
         width: 100%;
         justify-content: space-between;
-        h5 {
-            color: #31f5b4;
-            letter-spacing: 0.04em;
-        }
-        p{
-            color: #777;
-            font-size: 0.7rem;
-        }
+        h5 {color: #31f5b4;letter-spacing: 0.04em;}
+        p{color: #777;font-size: 0.7rem;}
     }
-    h3 {
-        color: #DDD;
-    }
-    p {
-        color: #888;
-    }
-
-    margin: 1em auto;
+    h3 {color: #DDD;}
+    p {color: #888;}
+    
+    margin: 0em auto;
     max-width: 30rem;
     background-color: #333;
     padding: 2em 1em;
+    padding-top: 1em;
     border-radius: 8px;
     border-color: #555;
     border: 1px solid;
     display: flex;
     gap: 1em;
+    align-self: flex-start;
+    // grid-row-start: span 2;
     flex-direction: column;
 
 }

@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <header className='nav_header'>
             <div className="nav_header_wrapper">
-               <div class='logo-beta'>EN</div>
+               <div className='logo-beta'>EN</div>
                 <NavLink/>
                 <button className='cta'>Status <span></span></button>
             </div>

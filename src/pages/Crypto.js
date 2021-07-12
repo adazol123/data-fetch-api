@@ -6,7 +6,7 @@ import CoinModal from "../components/Crypto/CoinModal"
 import CoinTrending from "../components/Crypto/CoinTrending"
 
 const Crypto = () => {
-
+    
     const [coins, setCoins] = useState([])
     const [filter, setFilter] = useState('')
     const [selectedItem, setSelectedItem] = useState(null)

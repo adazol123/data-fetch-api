@@ -65,7 +65,7 @@ Source Code for this web application is available on [Github Repository](https:/
 
 ---
 
-#### License [MIT](https://www.github.com/adazol123)
+#### License [MIT](https://github.com/adazol123/data-fetch-api/blob/master/LICENSE)
 
 #### Authors [Daniel Lozada](https://www.github.com/adazol123)
 #### Website [www.adazolhub.com](https://www.adazolhub.com)

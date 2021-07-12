@@ -33,18 +33,18 @@ const CoinTable = () => {
         exit: { y: 10, opacity: 0},
 
     }
-
-    const {data, error} = useSWR('/api/v3/markets', fetcher ,{
+    
+    const {data, error} = useSWR(`/api/v3/markets`, fetcher ,{
         revalidateOnFocus: false,
         refreshInterval: 9000000
         
     })
-    useEffect(() => {
+    const Fetch = async => useEffect(  ()  => {
         setStatus(prev => 'Fetching Data from API ...')
         setCoins( prev => data && data)
         console.log('Fetching ...')
 
-    }, [data])
+    }, [])
 
         
     
