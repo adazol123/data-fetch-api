@@ -21,10 +21,13 @@
     .home-content { 
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        // flex-direction: column;
         margin: 0 auto;
-        max-width: 1000px;
-        // min-height: 3em;
+        max-width: 900px;
+        min-height: 3em;
+        flex-wrap: wrap;
+
+        gap: 1em;
         
     }
     @supports (display: grid) {
@@ -38,6 +41,7 @@
             // grid-auto-rows: 40px;
         }
     }
+
 }
 .data-home {
     img
@@ -74,5 +78,12 @@
     align-self: flex-start;
     // grid-row-start: span 2;
     flex-direction: column;
+    vertical-align: middle;
 
+}
+@media screen and (min-width: 800px) {
+    .data-home{
+
+        min-width: 100%;
+    }
 }

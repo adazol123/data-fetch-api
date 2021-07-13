@@ -11,6 +11,7 @@ const Home = () => {
                 <h2  className='crypto-home-title'>Headlines <span>Finance</span> </h2>
             </div>
             <News />
+
         </div>
     )
 }
