@@ -277,11 +277,12 @@ table td {
   -o-border-radius: 4px;
   margin-bottom: 0.5rem;
   cursor: pointer;
+  border: 0.04em solid;
+  border-color: transparent;
 }
 .wrapper:hover {
   background-color: rgba(34, 34, 34, 0.2);
-  outline: 0.04em solid;
-  outline-color: #333;
+  border-color: #444;
 }
 .wrapper .crypto-button-price {
   display: flex;
@@ -342,7 +343,7 @@ table td {
 .wrapper .crypto-button-price .red {
   color: #f80f68;
   position: relative;
-  background-color: rgba(247, 48, 170, 0.05);
+  background-color: rgba(247, 48, 170, 0.04);
 }
 .wrapper .crypto-button-price .red::before {
   content: "↘";
@@ -354,6 +355,7 @@ table td {
 }
 .wrapper .crypto-button-price .green {
   color: #31f5b4;
+  background-color: rgba(48, 247, 214, 0.05);
   position: relative;
 }
 .wrapper .crypto-button-price .green::before {
@@ -457,7 +459,7 @@ table td {
 
 .crypto-page {
   position: relative;
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -467,12 +469,18 @@ table td {
   width: 100%;
   height: 80%;
   z-index: 101;
-  bottom: -40%;
+  bottom: 0%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   padding: 1rem;
 }
-.coin-container-modal::before {
+@media screen and (min-width: 800px) {
+  .coin-container-modal {
+    max-width: 80%;
+    left: 10%;
+  }
+}
+.coin-container-modal:before {
   content: "";
   position: absolute;
   bottom: -190%;
@@ -589,8 +597,9 @@ table td {
 }
 
 .trends-title {
-  margin-left: 1rem;
-  margin-top: 2rem;
+  max-width: 800px;
+  padding-left: 1rem;
+  margin: 1rem auto 2rem auto;
 }
 
 .trends-list {
