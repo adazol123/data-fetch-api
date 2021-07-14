@@ -31,7 +31,7 @@ const CoinModal = () => {
 
     
     const y = useMotionValue(0)
-    const [expand, setExpand] = useState('-40%')
+    const [expand, setExpand] = useState('0%')
     const currency_format = {maximumFractionDigits: 2, minimumFractionDigits: 2 }
 
     // description.current.innerHTML = coinData.description.en
@@ -57,7 +57,7 @@ const CoinModal = () => {
         <div className="modal-backdrop"
             onClick={() => {
                 setShowCoin(prev => !prev)
-                setExpand(prev => '-40%')
+                setExpand(prev => '0%')
             }}
         />
         {selectedItem &&
@@ -74,17 +74,17 @@ const CoinModal = () => {
             onDrag={
                 () => {
                     if( expand === '0%' && y.get() > 140 ) {
-                        setExpand(prev => '-40%')}
-                    if( expand === '-40%' && y.get() < -50) 
+                        setExpand(prev => '00%')}
+                    if( expand === '0%' && y.get() < -50) 
                         setExpand(prev => '0%')
                     // else setExpand(prev => 'down')
                     // console.log(expand, showCoin, y.get())
                 }
               }
               onDragEnd = { () => {
-                if(expand === '-40%' && y.get() > 220) {
+                if(expand === '0%' && y.get() > 220) {
                     setShowCoin(prev => false)
-                    setExpand(prev => '-40%')
+                    setExpand(prev => '0%')
                 }
               }}
         className='coin-container-modal'>
