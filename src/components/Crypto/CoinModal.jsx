@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import DataContext from '../../util/DataContext'
 import { useMotionValue, m, LazyMotion} from 'framer-motion'
 import axios from 'axios'
+import {Link, Redirect} from 'react-router-dom'
 import CoinChart from './CoinChart'
 // import DataType from '../../util/DataType'
 
 const CoinModal = () => {
-    const {selectedItem, showCoin, setShowCoin} = useContext(DataContext)
+    const {selectedItem, setSelectedItem, showCoin, setShowCoin} = useContext(DataContext)
     const [coinData, setCoinData] = useState(null)
     const [dataLoading, setDataLoading] = useState(false)
     const description = useRef()
@@ -112,7 +113,13 @@ const CoinModal = () => {
 
           
             </div>
-            <button className="test"> Expand </button>
+            <Link to={`/crypto/${selectedItem.id}`}>
+
+            <button className="test"
+                onClick={() =>
+                    console.log(coinData)}
+            > Expand </button>
+            </Link>
 
         </m.div>}
         </m.div>}
