@@ -7,7 +7,7 @@ const Navbar = () => {
             <div className="nav_header_wrapper">
                <div className='logo-beta'>EN</div>
                 <NavLink/>
-                <a href='https://status.entrepreneursportfolio.com/'
+                <a href='https://entrepreneursportfolio.statuspage.io'
                 rel='noreferrer'
                 target='_blank'
                 >
