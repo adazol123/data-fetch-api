@@ -6,6 +6,15 @@ import DataContext from '../../util/DataContext'
 const CoinRow = ({coins, onSelect}, ...props) => {
     const [coinToggle, setCoinToggle] = useState(false)
     const {setShowCoin} = useContext(DataContext)
+    const { 
+            id, 
+            name, 
+            image, 
+            symbol, 
+            current_price: price, 
+            price_change_percentage_24h: price_percent, 
+        } = coins
+
     const toggleHandler = () => {
         setCoinToggle(prev => !prev)
         
@@ -14,13 +23,17 @@ const CoinRow = ({coins, onSelect}, ...props) => {
     return (
         <>
         <div className="wrapper"  
-            onClick={toggleHandler}>
+            onClick={() => {
+                onSelect(coins)
+                setShowCoin(prev => !prev)
+                }}
+            >
             <div className="crypto-button-left">
-                <img src={coins.image} alt={['icon', coins.id].join('-')} />
+                <img src={image} alt={['icon', coins.id].join('-')} />
                 <div className="crypto-button-name">
-                    <h4>{coins.name}</h4>
+                    <h4>{name}</h4>
                     <p className="crypto-symbol">
-                        {coins.symbol.toUpperCase()}
+                        {symbol.toUpperCase()}
                     </p>
                 </div>
             </div>
@@ -30,21 +43,21 @@ const CoinRow = ({coins, onSelect}, ...props) => {
             <div className="crypto-button-price">
                 <div className="crypto-price">
                     <h4> ₱
-                        {coins.current_price && coins.current_price.toLocaleString("en-US", {maximumFractionDigits: 2, minimumFractionDigits: 2 })}
+                        {price && price.toLocaleString("en-US", {maximumFractionDigits: 2, minimumFractionDigits: 2 })}
                     </h4>
                     <p
                         className={[
                         `price-change`, 
-                        coins.price_change_percentage_24h < 0? 'red' : 'green' ]
+                        price_percent < 0? 'red' : 'green' ]
                         .join(' ')}>
-                            {coins.price_change_percentage_24h && coins.price_change_percentage_24h.toFixed(2)}%
+                            {price_percent && price_percent.toFixed(2)}%
                     </p>
                 </div>
-                <div className={[`arrow`, coinToggle? 'show': null].join(' ')}><p>›</p></div>
+                {/* <div className={[`arrow`, coinToggle? 'show': null].join(' ')}><p>›</p></div> */}
             </div>
         </div>
 
-        <div className={[`crypto-sub-button`, coinToggle? 'show': null].join(' ')}>
+        {/* <div className={[`crypto-sub-button`, coinToggle? 'show': null].join(' ')}>
             <div className='sub-top'>
                 <div>
                     <h4>ATH</h4>
@@ -69,7 +82,7 @@ const CoinRow = ({coins, onSelect}, ...props) => {
                     setShowCoin(prev => !prev)
                     }}>More info</button>
             </div>
-        </div>
+        </div> */}
         </>
     )
 }

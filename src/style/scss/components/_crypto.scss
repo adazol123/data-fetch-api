@@ -125,7 +125,7 @@ table {
     
 
 .wrapper {
-    background-color: #222;
+    background-color: #222222;
     min-height: calc(42px * 1.5);
     width: 100%;
     // max-width: 800px ;
@@ -143,6 +143,13 @@ table {
 
     margin-bottom: 0.5rem;
     cursor: pointer;
+    
+    &:hover {
+        background-color: rgba($color: #222222, $alpha: 0.2);
+        outline: 0.04em solid;
+        outline-color: #333;
+
+    }
 
 
 
@@ -167,6 +174,9 @@ table {
     }
     .crypto-button-name {
         min-width: 120px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
 
         .crypto-symbol{
             font-size: x-small;
@@ -175,33 +185,47 @@ table {
         }
     }
     .crypto-button-price {
-        min-width: 140px;
+        // min-width: 140px;
         min-height: 32px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+
         h4 {
             font-size: 0.85rem;
+        }
+
+        .crypto-price {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 0.2em;
         }
 
         .price-change{
             font-size: x-small;
             letter-spacing: 0.04em;
             font-weight: 200;
-            width: 100%;
+            width: max-content;
             text-align: right;
-            padding-right: 10px;
-            
-        }
+            padding: 0.2em 0.5em;
+            padding-right: 1.5em;
+
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+}
         .red {
-            color: rgb(247, 48, 170);
+            color: rgb(248, 15, 104);
             position: relative;
+            background-color: rgba(247, 48, 170, 0.05);
 
             &::before {
                 content: '↘';
                 width: 10px;
                 height: 10px;
                 position: absolute;
+                padding-right: 0.5em;
                 right: 0;
             }
         }
