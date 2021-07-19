@@ -1,0 +1,100 @@
+.coin-container {
+    padding: 2rem 1rem;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1em;
+    background: #222;
+    .coin-description {
+        color: #888;
+        margin-top: 0.5rem;
+        a {
+            color: #888;
+            pointer-events: none;
+        }
+    }
+}
+
+.coin-overview {
+    display: grid;
+    margin: 0.5em 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    // grid-gap: 0.5em;
+
+    .row {
+        border: 0.2px solid;
+        color: #AAA;
+        border-color: rgba($color: #777, $alpha: 0.2);
+        padding: 0.8em;
+        p {
+            color: #777;
+            font-size: 0.9rem;
+            font-weight: 200;
+            transform-origin: left top;
+            transform: scale(0.8);
+            letter-spacing: 0.04em;
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -ms-transform: scale(0.8);
+            -o-transform: scale(0.8);
+            &:nth-child(1){
+                margin-bottom: 0.5rem;
+            }
+}
+        &:not(:nth-child(1), :nth-child(2)){
+            border-top-color: transparent;
+        }
+        &:nth-child(odd){
+            border-right-color: transparent;
+        }
+    }
+
+}
+
+.crypto-chart {
+    width: 100%;
+}
+.coin-update{
+    color: #666;
+    font-size: 0.7rem;
+    margin-top: 0.5em;
+    letter-spacing: 0.04em;
+}
+
+.coin-data {
+    margin-top: 1rem;
+}
+
+.coin-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .price-change{
+        font-size: 0.9rem;
+
+        font-weight: 600;
+        width: max-content;
+        text-align: right;
+        padding: 0.4em 0.8em;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+    }
+    .red {
+        color: rgb(248, 15, 104);
+        position: relative;
+        background-color: rgba(247, 48, 170, 0.07);
+
+    }
+    .green {
+        color: #31f5b4;
+        background-color: rgba(48, 247, 214, 0.07);
+        position: relative;      
+
+    }
+}

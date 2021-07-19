@@ -1,0 +1,16 @@
+.not-found {
+    min-height: calc(100vh - (42px * 1.5));
+    display: grid;
+    place-content: center;
+    place-items: center;  
+    grid-gap: 1rem;
+    margin-top: -3rem;
+    h2 {
+        span { font-weight: 200;}
+    }
+    p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+    a { color: #31f5b4;}
+}

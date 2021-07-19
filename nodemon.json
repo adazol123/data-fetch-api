@@ -1,0 +1,10 @@
+{
+  "env": {
+    "MONGO_ATLAS_PW": "boysupotnga1234",
+    "MONGO_ATLAS_USER": "adazol",
+    "MONGO_ATLAS_DB": "crypto-web-app",
+    "MONGO_ATLAS_ID": "60f2e23890069202a073e800",
+    "NEWS_API_KEY": "e6fccacdf91948ae83e729466a978e11",
+    "GNEWS_API_KEY": "88307078ceeb8db02ea175d7d24c633a"
+  }
+}

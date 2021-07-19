@@ -1,0 +1,32 @@
+{
+  "name": "entrepreneur-portfolio-server",
+  "version": "1.22.5",
+  "engines": {
+    "node": "16.x",
+    "yarn": "1.x"
+  },
+  "description": "a web application that tracks about investing assets not limited to cryptocurrency, financial news and many more",
+  "main": "index.js",
+  "scripts": {
+    "restart": "killall -9 node",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "start": "node index.js",
+    "heroku-postbuild": "npm run install-client && npm run build"
+  },
+  "author": "Daniel Lozada",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2",
+    "node-fetch": "^2.6.1",
+    "request": "^2.88.2",
+    "timeago.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  }
+}
