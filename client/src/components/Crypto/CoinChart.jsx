@@ -1,5 +1,6 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+
+import useSWR from 'swr'
+import React, { useContext, useState } from "react";
 import DataContext from "../../util/DataContext";
 import {
   ResponsiveContainer,
@@ -12,28 +13,40 @@ import {
 } from "recharts";
 import { format, parseISO } from "date-fns";
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 
 
 const CoinChart = () => {
-  const { selectedItem } = useContext(DataContext);
+  const { selectedItem, currentCoin, setCurrentCoin } = useContext(DataContext);
   const [prices, setPrices] = useState([]);
   const [days, setDays] = useState('183')
   const [interval, setInterval] = useState('daily')
+  const url = `/api/backend/crypto/coins/${selectedItem.id}/market_chart?days=${days}&interval=${interval}`
   const data = [];
-  useEffect(() => {
-    selectedItem &&
-      axios
-        .get(`/api/backend/crypto/coins/${selectedItem.id}/market_chart?days=${days}&interval=${interval}`)
-        .then((response) => response.data.result)
-        .then((data) => {
-          console.log("Chart:", data.prices);
-          return setPrices((prev) => data.prices);
-        })
-        .catch((error) => console.log("Coin Chart Error:", error));
-  }, [selectedItem, days, interval]);
+  const ChartData = async () => {
+    const {data, error} = useSWR(url, fetcher,
+    { dedupingInterval: 1000, 
+      revalidateOnFocus: false,
+      revalidateOnMount: selectedItem.id === currentCoin? false: true,
+      refreshInterval: 0
+    })
+    if (error) return console.log('SWR Error', error.mesage)
+    if(!data) return console.log('SWR loading...')
+    const {query: { coin }} = data
+    try {
+      const result = await data.result
+      const output = await result.prices
+      setCurrentCoin(prev => coin)
+      console.log('Data Output', currentCoin, selectedItem.id)
+      return setPrices((prev) => output)
+    } catch(error) {
+      console.log('Chart DATA Error:', error.message)
+    }
+  }
 
-  prices &&
+  ChartData()
+
     prices.map((price, index) => {
       return data.push({
         date: new Date(price[0]).toISOString().substr(0, 10),
@@ -48,8 +61,9 @@ const CoinChart = () => {
       }      
       return '#31f5b4' 
     }
-    console.log(color())
-  return (
+    if(data) {
+      return (
+    <>
     <div className='crypto-chart'>
       <ResponsiveContainer width="100%" height={130}>
         <AreaChart data={data}>
@@ -115,7 +129,9 @@ const CoinChart = () => {
         <button className={days === 'max'? 'active': null} onClick={() => setDays(prev => 'max')}>All</button>
       </div>
     </div>
-  );
+    </>
+  )}
+   else return console.log('no data on chart')
 };
 
 

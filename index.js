@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -18,12 +19,18 @@ app.use(cors(), bodyParser.json(), (req, res, next) => {
 //   console.log("🔐  middleware: body parser");
 //   next();
 // });
-
-const Schema = mongoose.Schema;
-mongoose.connect(
-  uri,{ useNewUrlParser: true, useUnifiedTopology: true },
-  () => {console.log("🆗  Database Connected!")},
-);
+const Schema = async () => {
+  try {
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    console.log("🆗  Database Connected!", process.env.REACT_APP_MONGO_ATLAS_DB)
+  } catch(error) {
+    console.log('MongoDB Error:', error.message)
+  }
+} 
+Schema()
 
 //ROUTES
 app.use('/api/backend', cryptoRoute)
@@ -38,16 +45,16 @@ app.use('/api', apiRoute)
 // })
 
 const heartbeat = () => setInterval(() => {
-  return console.log('💓  heartbeat!', process.env.REACT_APP_MONGO_ATLAS_USER)
+  return console.log('💓  heartbeat!', process.env.REACT_APP_MONGO_ATLAS_DB)
 },6000)
 
 heartbeat()
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
-  // app.get('*', (request, response) => {
-  //   response.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-  // })
+  app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  })
 }
 
 app.listen(port, () =>
