@@ -10,7 +10,7 @@ const News = () => {
   useEffect(() => {
     console.log("fetching...");
     axios
-      .get("/api/v3/news")
+      .get("/api/news")
       .then((response) => response.data)
       .then((data) => {
         if (data.status === "ok") {

@@ -18,7 +18,7 @@ import { format, parseISO } from "date-fns";
 const CoinChart = () => {
   const { selectedItem } = useContext(DataContext);
   const [prices, setPrices] = useState([]);
-  const [days, setDays] = useState('30')
+  const [days, setDays] = useState('183')
   const [interval, setInterval] = useState('daily')
   const data = [];
   useEffect(() => {
