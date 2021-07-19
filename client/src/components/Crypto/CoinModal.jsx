@@ -65,8 +65,6 @@ const CoinModal = () => {
     const y = useMotionValue(0)
     const [expand, setExpand] = useState('0%')
     const currency_format = {maximumFractionDigits: 2, minimumFractionDigits: 2 }
-
-    // description.current.innerHTML = coinData.description.en
     const variants = {
         visible: { 
             opacity: 1, 
