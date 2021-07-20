@@ -10,8 +10,6 @@
 
 A web application that tracks cryptocurrency assets information like current price, market capitalization, price history and other crypo information that is available in API.
 
-
-
 This web application was built for demo and educational purposes, to explore and understand data fetching with API or Application Programming Interface as well Serverless function as the backend server
 
 Source Code for this web application is available on [Github Repository](https://github.com/adazol123/data-fetch-api)
@@ -26,9 +24,11 @@ Source Code for this web application is available on [Github Repository](https:/
 
 * Express
 
+* MongoDB
+
 * API (Free)
 
-* SASS
+* SASS preprocessor
 
 * Framer Motion
 
@@ -38,28 +38,37 @@ Source Code for this web application is available on [Github Repository](https:/
 
 #### Packages
 
- - express
+* express
 
- - nodemon
+* nodemon
 
- - react-router-dom
+* react-router-dom
 
- - axios
+* axios
 
- - framer-motion
+* framer-motion
 
- - recharts
+* recharts
 
- - request
+* request
 
- - swr
- 
- - markdown-to-jsx
+* swr
 
- - prop-types
+* markdown-to-jsx
 
- - date-fns
+* prop-types
 
+* date-fns
+
+* mongoose
+
+* body-parser
+
+* cors
+
+* dotenv
+
+* timeago.js
 
 ![sample-assets](https://firebasestorage.googleapis.com/v0/b/djlozada.appspot.com/o/mdx%2Fcrypto-update-01.png?alt=media&token=9f819a8a-c4dc-4d90-b696-5979fc5f0d86)
 
@@ -68,6 +77,7 @@ Source Code for this web application is available on [Github Repository](https:/
 #### License [MIT](https://github.com/adazol123/data-fetch-api/blob/master/LICENSE)
 
 #### Authors [Daniel Lozada](https://www.github.com/adazol123)
+
 #### Website [www.adazolhub.com](https://www.adazolhub.com)
 
-Build Version 0.03
+Build Version 0.04 | Integrating MongoDB
