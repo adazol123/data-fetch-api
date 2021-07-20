@@ -55,6 +55,13 @@
 
 .crypto-chart {
     width: 100%;
+    &-loader{
+        min-height: 130px;
+        display: grid;
+        place-content: center;
+        color: #888;
+        font-weight: 200;
+    }
 }
 .coin-update{
     color: #666;
@@ -84,7 +91,7 @@
         -moz-border-radius: 8px;
         -ms-border-radius: 8px;
         -o-border-radius: 8px;
-    }
+    }crypto-chart
     .red {
         color: rgb(248, 15, 104);
         position: relative;

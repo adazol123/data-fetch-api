@@ -998,6 +998,13 @@ img[alt=sample-assets] {
 .crypto-chart {
   width: 100%;
 }
+.crypto-chart-loader {
+  min-height: 130px;
+  display: grid;
+  place-content: center;
+  color: #888;
+  font-weight: 200;
+}
 
 .coin-update {
   color: #666;
@@ -1027,7 +1034,7 @@ img[alt=sample-assets] {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
 }
-.coin-price .red {
+.coin-price crypto-chart .red {
   color: #f80f68;
   position: relative;
   background-color: rgba(247, 48, 170, 0.07);

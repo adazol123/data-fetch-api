@@ -17,7 +17,6 @@ function App() {
   const [news, setNews] = useState([])
   const [trendsData, setTrendsData] = useState([])
   const [price_btc, setPrice_btc] = useState(0)
-  const [currentCoin, setCurrentCoin] = useState(null);
 
   return (
 
@@ -41,9 +40,7 @@ function App() {
       trendsData,
       setTrendsData,
       price_btc,
-      setPrice_btc,
-      currentCoin, 
-      setCurrentCoin
+      setPrice_btc
   }}>
     <Router>
       <PageNavigationListenerUtils/>    

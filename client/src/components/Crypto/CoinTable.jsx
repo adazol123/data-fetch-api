@@ -8,6 +8,7 @@ import axios from "axios";
 const CoinTable = () => {
   const { coins, setCoins, filter, setSelectedItem, setStatus, setPrice_btc } =
     useContext(DataContext);
+  
 
   const page = () => {
     if (filter) return 200;
@@ -81,7 +82,7 @@ const CoinTable = () => {
               </m.div>
             ))
         ) : (
-          <h2>Loading...</h2>
+          <h2 >Loading...</h2>
         )}
 
         {/* This section is currently on debugging mode when no search is found on the filter  */}
