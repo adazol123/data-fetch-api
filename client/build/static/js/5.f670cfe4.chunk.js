@@ -1,0 +1,2 @@
+(this["webpackJsonpdata-fetch-api"]=this["webpackJsonpdata-fetch-api"]||[]).push([[5],{452:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/README.b205602b.md"}}]);
+//# sourceMappingURL=5.f670cfe4.chunk.js.map

@@ -54,7 +54,7 @@ router.get("/crypto/:type/:category", async (request, response) => {
     if(param.type === 'coins' &&  param.category === 'markets') {
         const coin_data_v1 = await fetch_response.json();
         const updatedCrypto = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {coin_data_v1, coins_updated_at : Date.now()} }
         );
         console.log("✅  Last Update :", coin_data_v1.length);
@@ -69,7 +69,7 @@ router.get("/crypto/:type/:category", async (request, response) => {
     if(param.type === 'search' &&  param.category === 'trending') {
       const coin_trends = await fetch_response.json();
       const updatedCrypto = await Crypto.updateOne(
-        { _id: "60f2e23890069202a073e800" },
+        { _id: process.env.REACT_APP_NEWS_API_KEY },
         { $set: {coin_trends, coins_updated_at : Date.now()} }
       );
       console.log("✅  Last Update :", coin_trends.length);
@@ -107,7 +107,7 @@ router.get('/crypto/:type/:coin/:category', async (request, response) => {
     switch (param.days) {
       case '1':
         const update_day_1 = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {chart_last_visited: Date.now()}}
         );
         console.log("✅  Last Update :", result.length);
@@ -120,7 +120,7 @@ router.get('/crypto/:type/:coin/:category', async (request, response) => {
         break;
       case '7':
         const update_day_7 = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {chart_last_visited: Date.now()}}
         );
         console.log("✅  Last Update :", result.length);
@@ -134,7 +134,7 @@ router.get('/crypto/:type/:coin/:category', async (request, response) => {
         break;
       case '30':
         const update_day_30 = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {chart_last_visited: Date.now()} }
         );
         console.log("✅  Last Update :", result.length);
@@ -142,7 +142,7 @@ router.get('/crypto/:type/:coin/:category', async (request, response) => {
         break;
       case '183':
         const update_day_183 = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {chart_last_visited: Date.now()} }
         );
         console.log("✅  Last Update :", result.length);
@@ -155,7 +155,7 @@ router.get('/crypto/:type/:coin/:category', async (request, response) => {
         break;
       case '366':
         const update_day_366 = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {chart_last_visited: Date.now()} }
         );
         console.log("✅  Last Update :", result.length);
@@ -168,7 +168,7 @@ router.get('/crypto/:type/:coin/:category', async (request, response) => {
         break;
       case 'max':
         const update_day_max = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {chart_last_visited: Date.now()} }
         );
         console.log("✅  Last Update :", result.length);
@@ -214,7 +214,7 @@ router.get("/news", async (request, response) => {
     const fetch_response = await fetch(news_url);
     const news_data = await fetch_response.json();
     const updatedNews = await Crypto.updateOne(
-        { _id: "60f2e23890069202a073e800" },
+        { _id: process.env.REACT_APP_NEWS_API_KEY },
         { $set: {news_data, news_updated_at : Date.now()} }
       );
     console.log("✅  News V1 | Last Update :", format(Date.now(), 'en_US'));
@@ -252,7 +252,7 @@ router.get("/gnews/:head", async (request, response) => {
       const fetch_response = await fetch(news_url);
       const news_data_v2 = await fetch_response.json();
       const updatedNews = await Crypto.updateOne(
-          { _id: "60f2e23890069202a073e800" },
+          { _id: process.env.REACT_APP_NEWS_API_KEY },
           { $set: {news_data_v2, updated_at : Date.now()} }
         );
       console.log("✅  News V2 | Last Update :", format(Date.now(), 'en_US'));

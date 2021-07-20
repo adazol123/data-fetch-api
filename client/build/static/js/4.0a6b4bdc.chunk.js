@@ -1,0 +1,2 @@
+(this["webpackJsonpdata-fetch-api"]=this["webpackJsonpdata-fetch-api"]||[]).push([[4],{470:function(a,t,e){"use strict";e.d(t,"a",(function(){return s}));var c=e(2),n=e(212),r=e(213),i=e(196),s=Object(c.a)(Object(c.a)({renderer:i.a},n.a),r.a)},472:function(a,t,e){"use strict";e.r(t);var c=e(2),n=e(259),r=e(258),i=e(470),s=Object(c.a)(Object(c.a)(Object(c.a)({},i.a),n.a),r.a);t.default=s}}]);
+//# sourceMappingURL=4.0a6b4bdc.chunk.js.map
