@@ -32,8 +32,8 @@ a:active, a:hover, a:focus {
 input, button {
   border-style: none;
   outline-style: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: rgba(34, 34, 34, 0.1);
+  color: #CCC;
   border: 0.2px solid #555;
 }
 
@@ -78,7 +78,8 @@ button {
   font-size: 1rem;
 }
 .nav_links a {
-  width: 2.8rem;
+  text-align: center;
+  width: 3rem;
   transform: scale(0.9);
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
@@ -201,29 +202,6 @@ button {
   width: 32px;
 }
 
-tbody td:not(:nth-last-child(1)) {
-  padding-right: 1rem;
-  font-weight: 700;
-}
-
-table {
-  min-width: 80%;
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-table thead {
-  padding-bottom: 2rem;
-}
-table th {
-  text-align: left;
-  font-size: x-large;
-  padding: 2rem 0.5rem;
-}
-table td {
-  font-weight: 200;
-  padding: 0.5rem;
-}
-
 .form {
   max-width: 800px;
   margin: 0 auto;
@@ -255,6 +233,8 @@ table td {
   padding: 0.5rem 1rem;
   position: relative;
   border-right: none;
+  color: #555;
+  border-color: #222;
 }
 .form button {
   width: 64px;
@@ -263,6 +243,12 @@ table td {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   color: #888;
+  border-color: #282828;
+  border-width: 0.2px;
+}
+.form .input:focus-within input, .form .input:focus-within button {
+  color: #CCC;
+  border-color: rgba(241, 241, 241, 0.2);
 }
 
 .crypto-home-title {
@@ -302,7 +288,7 @@ table td {
 }
 
 .wrapper {
-  background-color: #222222;
+  background-color: #181818;
   min-height: calc(42px * 1.5);
   width: 100%;
   padding: 0 1rem;
@@ -320,8 +306,8 @@ table td {
   border-color: transparent;
 }
 .wrapper:hover {
-  background-color: rgba(34, 34, 34, 0.2);
-  border-color: #444;
+  background-color: rgba(34, 34, 34, 0.7);
+  border-color: #555;
 }
 .wrapper .crypto-button-price {
   display: flex;
@@ -800,7 +786,7 @@ table td {
   padding-left: 1.5rem;
 }
 .trends-list .trends-row div {
-  background: #333;
+  background: #222;
   padding: 1rem 1rem;
   min-width: 140px;
   border-radius: 8px;
@@ -809,7 +795,7 @@ table td {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   box-shadow: 0 1px 0px 0px #111;
-  border: #777 1px solid;
+  border: #555 0.5px solid;
 }
 
 article {
@@ -827,7 +813,7 @@ img[alt=sample-assets] {
 }
 
 .about {
-  background-color: #262626;
+  background-color: #111;
   min-height: 100vh;
   max-width: 800px;
   margin: 0 auto;

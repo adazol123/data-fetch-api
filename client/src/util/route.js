@@ -10,9 +10,9 @@ export const route = () => {
   return (
       <Switch>
         <Route path='/about' exact component={About} />
-        <Route path='/crypto' exact component={Crypto} />
+        <Route path='/news' exact component={Home} />
         <Route path='/crypto/:id' exact component={Coin} />
-        <Route path='/' exact component={Home} />
+        <Route path='/' exact component={Crypto} />
         <Route component={PageNotFound} />
       </Switch>
   );

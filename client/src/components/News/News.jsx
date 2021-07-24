@@ -5,7 +5,7 @@ import DataContext from '../../util/DataContext'
 
 const News = () => {
 
-  const {news, setNews, selectedItem, coins} = useContext(DataContext)
+  const {news, setNews, selectedItem} = useContext(DataContext)
 
   useEffect(() => {
     console.log("fetching...");
@@ -15,13 +15,13 @@ const News = () => {
       .then((data) => {
         if (data.status === "ok") {
           setNews((prev) => data.articles);
-          console.log('News Fetched: ',news.length);
+          console.log('News Fetched: ', news.length);
         } else console.log("Error on news API");
       })
       .catch(err => console.log(err))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedItem]);
-  console.log('from local', JSON.parse(localStorage.getItem('coins')))
+  console.log('from localStorage', JSON.parse(localStorage.getItem('coins')))
   return (
     <React.Fragment>
       <div className="home-content">

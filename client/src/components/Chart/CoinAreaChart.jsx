@@ -14,8 +14,8 @@ const CoinAreaChart = ({ data, color,content }) => {
     <AreaChart data={data}>
       <defs>
         <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={color()} stopOpacity={0.08} />
-          <stop offset="75%" stopColor={color()} stopOpacity={0.01} />
+          <stop offset="0%" stopColor={color} stopOpacity={0.08} />
+          <stop offset="75%" stopColor={color} stopOpacity={0.01} />
         </linearGradient>
       </defs>
       <Area
@@ -23,7 +23,7 @@ const CoinAreaChart = ({ data, color,content }) => {
         type="natural"
         dataKey="value"
         strokeWidth={2}
-        stroke={color()}
+        stroke={color}
         fill="url(#color)"
         margin={{
           top: 10,

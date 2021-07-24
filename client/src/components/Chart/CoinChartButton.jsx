@@ -15,9 +15,18 @@ const CoinChartButton = ({days, setDays, setDataInterval}) => {
       setDays(prev => '30')
       setDataInterval(prev => 'daily')
     }}>1M</button>
-    <button className={days === '183'? 'active': null} onClick={() => setDays(prev => '183')}>6M</button>
-    <button className={days === '366'? 'active': null} onClick={() => setDays(prev => '366')}>1Y</button>
-    <button className={days === 'max'? 'active': null} onClick={() => setDays(prev => 'max')}>All</button>
+    <button className={days === '183'? 'active': null} onClick={() => {
+      setDays(prev => '183') 
+      setDataInterval(prev => 'daily')
+    }}>6M</button>
+    <button className={days === '366'? 'active': null} onClick={() => {
+      setDays(prev => '366') 
+      setDataInterval(prev => 'daily')
+    }}>1Y</button>
+    <button className={days === 'max'? 'active': null} onClick={() => {
+      setDays(prev => 'max') 
+      setDataInterval(prev => 'monthly')
+    }}>All</button>
   </div>
   )
 }

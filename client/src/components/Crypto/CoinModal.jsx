@@ -38,7 +38,8 @@ const CoinModal = () => {
                     localStorage.setItem('coinV1', JSON.stringify(data))
                     console.log('Fetch coin version 1')
                     setDataLoading(true)
-        })
+                })
+                .catch(error => console.log('Fetch coin version 1 Error'))
         // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [selectedItem]),
         useEffect(() => {
@@ -53,6 +54,7 @@ const CoinModal = () => {
                     console.log('Fetch coin version 2')
                     setDataLoading(true)
                 })
+                .catch(error => console.log('Fetch coin version 2 Error'))
     
         // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [selectedItem])
@@ -60,10 +62,10 @@ const CoinModal = () => {
 
         
     
-    const loadFeatures = () => import('../../util/features-animate.js').then(res => res.default)
+    // const loadFeatures = () => import('../../util/features-animate.js').then(res => res.default)
     
     const y = useMotionValue(0)
-    const [expand, setExpand] = useState('0%')
+
     const currency_format = {maximumFractionDigits: 2, minimumFractionDigits: 2 }
 
     // description.current.innerHTML = coinData.description.en
@@ -104,13 +106,12 @@ const CoinModal = () => {
             onDrag={
                 () => {
                     if(y.get() > 140 ) {
-                        setExpand(prev => '00%')}
+                        setShowCoin(prev => false)}
                 }
               }
               onDragEnd = { () => {
                 if(y.get() > 120) {
                     setShowCoin(prev => false)
-                    setExpand(prev => '0%')
                 }
               }}
         className='coin-container-modal'>

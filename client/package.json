@@ -2,7 +2,7 @@
   "name": "data-fetch-api",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://test-app-crypto-ep.herokuapp.com",
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "axios": "^0.21.1",
     "date-fns": "^2.22.1",

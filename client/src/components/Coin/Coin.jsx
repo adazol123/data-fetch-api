@@ -19,24 +19,24 @@ const Coin = ({
       id: coin_id,
       name: coin_name,
       description,
-      categories,
-      image: coin_image,
       last_updated,
-      links,
+      // categories,
+      // image: coin_image,
+      // links,
       market_data: {
         market_cap_rank,
         current_price, //php
-        price_change_24h, //percent
-        price_change_24h_in_currency, //php
         price_change_percentage_24h, //percent
-        price_change_percentage_24h_in_currency, //php
         market_cap, //php
-        market_cap_change_percentage_24h, //percent
-        market_cap_change_percentage_24h_currency, //php
-        market_rank,
-        max_supply,
         total_supply,
         total_volume, //php
+        // price_change_24h, //percent
+        // price_change_24h_in_currency, //php
+        // price_change_percentage_24h_in_currency, //php
+        // market_cap_change_percentage_24h, //percent
+        // market_cap_change_percentage_24h_currency, //php
+        // market_rank,
+        // max_supply,
       },
     } = coinData;
 

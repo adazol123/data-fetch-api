@@ -4,30 +4,7 @@
         width: 32px;
     }
 }
-tbody {
-    
-     td:not(:nth-last-child(1)){
-        padding-right: 1rem;
-        font-weight: 700;
-    }
-}
-table {
-    thead {
-        padding-bottom: 2rem;
-    }
-    th {
-        text-align: left;
-        font-size: x-large;
-        padding: 2rem 0.5rem;
-    }
-    td {
-        font-weight: 200;
-        padding: 0.5rem;
-    }
-    min-width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-}
+
 .form {
     max-width: 800px ;
     margin: 0 auto;
@@ -61,21 +38,29 @@ table {
         border-bottom-left-radius: 8px;
         min-height: 42px;
         padding: 0.5rem 1rem;
-
         position: relative;
-
         border-right: none;
+        color: #555;
+
+        border-color: #222;
 
     }
     
     button {
-        
         width: 64px;
         min-height: 42px;
         border-left: none;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
         color: #888;
+        border-color: #282828;
+        border-width: 0.2px;
+}
+    .input:focus-within  {
+        input, button {
+            color: #CCC;
+            border-color: rgba(241, 241, 241, 0.2);
+        }
     }
 }
 
@@ -125,7 +110,7 @@ table {
     
 
 .wrapper {
-    background-color: #222222;
+    background-color: #181818;
     min-height: calc(42px * 1.5);
     width: 100%;
     // max-width: 800px ;
@@ -147,8 +132,8 @@ table {
     border-color: transparent;
     
     &:hover {
-        background-color: rgba($color: #222222, $alpha: 0.2);
-        border-color: #444;
+        background-color: rgba($color: #222, $alpha: 0.7);
+        border-color: #555;
 
     }
 
@@ -691,7 +676,7 @@ table {
 
             div {
 
-        background: #333;
+        background: #222;
         padding: 1rem 1rem;
         min-width: 140px;
         border-radius: 8px;
@@ -701,7 +686,7 @@ table {
         -o-border-radius: 8px;
 
         box-shadow: 0 1px 0px 0px #111;
-        border: #777 1px solid;
+        border: #555 0.5px solid;
     }
     }
 }
@@ -721,7 +706,7 @@ img[alt="sample-assets"] {
     width: calc(100% );
 }
 .about {
-    background-color: #262626;
+    background-color: #111;
     min-height: 100vh;
     max-width: 800px;
     margin: 0 auto;

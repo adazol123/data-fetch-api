@@ -38,7 +38,7 @@ const CoinTable = () => {
     axios.get('/api/coins')
       .then(response => response.data)
       .then(data => {
-        setStatus((prev) => "Fetched Data from API ...")
+        setStatus((prev) => " ")
         setPrice_btc(prev => data[0].current_price)
         return setCoins((prev) => data)
       })

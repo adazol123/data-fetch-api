@@ -70,7 +70,7 @@ Source Code for this web application is available on [Github Repository](https:/
 
 * timeago.js
 
-![sample-assets](https://firebasestorage.googleapis.com/v0/b/djlozada.appspot.com/o/mdx%2Fcrypto-update-01.png?alt=media&token=9f819a8a-c4dc-4d90-b696-5979fc5f0d86)
+
 
 ---
 
