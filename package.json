@@ -1,7 +1,6 @@
 {
   "name": "entrepreneur-portfolio-server",
   "version": "1.22.5",
-
   "description": "a web application that tracks about investing assets not limited to cryptocurrency, financial news and many more",
   "main": "index.js",
   "scripts": {
@@ -22,7 +21,9 @@
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "dotenv": "^10.0.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "save": "^2.4.0"
   }
 }

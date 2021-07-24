@@ -73,8 +73,8 @@ const CoinTable = () => {
                   coins={coin}
                   onSelect={(coin) => {
                     setSelectedItem(coin);
-                    localStorage.setItem('selectedItem', JSON.stringify(coin))
                     // setCoinV1(coin)
+                    
                   }}
                 />
               </m.div>
