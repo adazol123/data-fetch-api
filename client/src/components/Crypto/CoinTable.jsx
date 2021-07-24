@@ -50,8 +50,6 @@ const CoinTable = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
-  coins && console.log(coins.length);
-
   return (
     <LazyMotion features={loadFeatures}>
       <m.div
