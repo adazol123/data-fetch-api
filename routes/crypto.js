@@ -31,6 +31,20 @@ router.post('/create', async ( request, response) => {
  * crypto data
  * credits to https://www.coingecko.com/en
  */
+
+const getCoins = async (type, category, per_page, currency, page, order, sparkline, price_change) => {
+  const url = `https://api.coingecko.com/api/v3/${type}/${category}?vs_currency=${currency}${per_page}&page=${page}`
+  try {
+    const response = await fetch(url)
+    const data_coin =  await response.json()
+    const [...rest] = data_coin
+    return data_coin
+  } catch (error) {
+    console.log('Coin Error')
+  }
+}
+
+
 router.get("/crypto/:type/:category", async (request, response) => {
   try {
     const {currency, order, per_page, page, sparkline, price_change} = request.query
@@ -52,18 +66,31 @@ router.get("/crypto/:type/:category", async (request, response) => {
 
 
     if(param.type === 'coins' &&  param.category === 'markets') {
-        const coin_data_v1 = await fetch_response.json();
+      try {
+        const coin_page_1 = getCoins(param.type, param.category, param.per_page, param.currency, 1)
+        const coin_page_2 = getCoins(param.type, param.category, param.per_page, param.currency, 2)
+        const coin_page_3 = getCoins(param.type, param.category, param.per_page, param.currency, 3)
+        const result = await Promise.all([coin_page_1,coin_page_2,coin_page_3])
+        const [[...one],[...two],[...three]] = result
+        const coins_data = [...one,...two,...three]
+
         const updatedCrypto = await Crypto.updateOne(
           { _id: process.env.REACT_APP_MONGO_ATLAS_ID },
-          { $set: {coin_data_v1, coins_updated_at : Date.now()} }
+          { $set: {coins_data, coins_updated_at : Date.now()} }
         );
-        console.log("✅  Last Update :", coin_data_v1.length);
+        console.log("✅  Last Update :", coins_data.length);
+        console.log(one.push(...two,...three))
         return response.json({ 
           message : 'success!' ,
-          counts: coin_data_v1.length,
+          counts: (coins_data.length),
           status: response.statusCode,
           query : param,
+  
         });
+      } catch (error) {
+        console.log('Coins_data fetch encountered an error ', error.message)
+      }
+
     }
 
     if(param.type === 'search' &&  param.category === 'trending') {

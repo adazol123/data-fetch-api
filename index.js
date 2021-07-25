@@ -1,14 +1,17 @@
-require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const app = express();
-const port = process.env.PORT || "8000";
-const cors = require("cors");
-const mongoose = require("mongoose");
-const path = require("path");
+require("dotenv").config()
+const express = require("express")
+const bodyParser = require("body-parser")
+const app = express()
+const port = process.env.PORT || "8000"
+const cors = require("cors")
+const mongoose = require("mongoose")
+const path = require("path")
 const uri =
   process.env.MONGO_URI ||
-  `mongodb+srv://${process.env.REACT_APP_MONGO_ATLAS_USER}:${process.env.REACT_APP_MONGO_ATLAS_PW}@cluster0.vddsv.mongodb.net/${process.env.REACT_APP_MONGO_ATLAS_DB}?retryWrites=true&w=majority`;
+  `mongodb+srv://
+  ${process.env.REACT_APP_MONGO_ATLAS_USER}:
+  ${process.env.REACT_APP_MONGO_ATLAS_PW}@cluster0.vddsv.mongodb.net/
+  ${process.env.REACT_APP_MONGO_ATLAS_DB}?retryWrites=true&w=majority`;
 const cryptoRoute = require("./routes/crypto");
 const apiRoute = require("./routes/api");
 
@@ -24,6 +27,7 @@ const Schema = async () => {
     );
   } catch (error) {
     console.log("😥  MongoDB Error:", error.message);
+     
   }
 };
 

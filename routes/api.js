@@ -13,9 +13,9 @@ router.get('/', (request, response) => {
 router.get('/coins', async (request, response) => {
   try {
     const coins = await Crypto.find()
-    const [{coin_data_v1}] = coins
+    const [{coins_data}] = coins
     console.log('🌐  Fetched - Coins:',response.statusCode)
-    return response.status(200).json(coin_data_v1)
+    return response.status(200).json(coins_data)
   } catch (error) { return response.json({message: error})}
 })
 

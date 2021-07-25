@@ -6,13 +6,14 @@ import DataContext from '../../util/DataContext'
 const Navbar = () => {
     const { setShowCoin} = useContext(DataContext)
     let location = useLocation()
-    const current = JSON.parse(localStorage.getItem("selectedItem"));
+    const current = JSON.parse(localStorage.getItem("CoinV1"));
 
     if (current && location.pathname === `/crypto/${current.id}`) {
+        console.log(location.pathname)
         return (
             <header className='nav_header nav_secondary'>
             <div className="nav_header_wrapper">
-                <Link to='/crypto' replace>
+                <Link to='/' replace>
                 <button className='nav_cancel_button' onClick={() =>
                     setShowCoin(prev => !prev)
                 }> ￩

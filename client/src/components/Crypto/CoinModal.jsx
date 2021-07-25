@@ -44,6 +44,7 @@ const CoinModal = () => {
     } catch (error) {
       console.log(error);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedItem]);
 
   // const loadFeatures = () => import('../../util/features-animate.js').then(res => res.default)
