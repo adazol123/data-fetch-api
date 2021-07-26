@@ -8,8 +8,6 @@ const CryptoSchema = mongoose.Schema({
   coin_data_v2: Object,
   coins_data: Object,
   coin_trends: Object,
-  news_data: Object,
-  news_data_v2: Object,
   coin_day_1: Object,
   coin_day_7: Object,
   coin_day_30: Object,
@@ -27,10 +25,6 @@ const CryptoSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  news_updated_at: {
-    type: Date,
-    default: Date.now
-  }
 },{collection: 'root'})
 
 module.exports = mongoose.model('crypto', CryptoSchema)

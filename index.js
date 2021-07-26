@@ -13,6 +13,7 @@ const uri =
   ${process.env.REACT_APP_MONGO_ATLAS_PW}@cluster0.vddsv.mongodb.net/
   ${process.env.REACT_APP_MONGO_ATLAS_DB}?retryWrites=true&w=majority`;
 const cryptoRoute = require("./routes/crypto");
+const newsRoute = require('./routes/news');
 const apiRoute = require("./routes/api");
 
 const Schema = async () => {
@@ -37,7 +38,7 @@ const heartbeat = () =>
       "💓  heartbeat!",
       process.env.REACT_APP_MONGO_ATLAS_DB || "no connection"
     );
-  }, 6000);
+  }, (6000 * 30));
 
 Schema();
 heartbeat();
@@ -50,6 +51,7 @@ app.use(cors(), bodyParser.json(), (req, res, next) => {
 
 //ROUTES
 app.use("/api/backend", cryptoRoute);
+app.use("/api/backend/news", newsRoute)
 app.use("/api", apiRoute);
 
 //ROOT

@@ -31,12 +31,13 @@ a:active, a:hover, a:focus {
 input, button {
     border-style: none;
     outline-style: none;
-    background-color: rgba($color: #222, $alpha: 0.1);
+    background-color: rgba($color: #AAA, $alpha: 0.1);
     color: #CCC;
 
     border: 0.2px solid #555;
 }
 button {
+    border-color: transparent;
     cursor: pointer;
     
 }

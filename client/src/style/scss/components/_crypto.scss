@@ -65,7 +65,7 @@
 }
 
 .crypto-home-title{
-    margin: 1rem 0 1rem 0rem;
+    margin: 1em 0;
     // width: 100px;
     
 
@@ -384,7 +384,7 @@
 .modal-content {
     position: relative;
     height: 85%;
-    margin: 0 1em;
+    margin: 0 0em;
     margin-top: 1em;
     
 
@@ -408,7 +408,7 @@
         height: 32px;
         width: 32px;
         top: 0.5rem;
-        right: 0;
+        right: 1em;
         border-radius: 50%;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
@@ -495,10 +495,10 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
-        width: 98%;
-
         white-space: wrap;
         text-overflow: ellipsis;
+        width: 98%;
+
         color: #888;
         & a {
             color: #888;

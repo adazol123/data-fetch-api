@@ -5,45 +5,51 @@ import DataContext from '../../util/DataContext'
 
 const News = () => {
 
-  const {news, setNews, selectedItem} = useContext(DataContext)
-
+  const {news, setNews, setSelectedItem, setToggle} = useContext(DataContext)
   useEffect(() => {
     console.log("fetching...");
     axios
       .get("/api/news")
-      .then((response) => response.data)
+      .then((response) => response.data.news_data)
       .then((data) => {
-        if (data.status === "ok") {
-          setNews((prev) => data.articles);
-          console.log('News Fetched: ', news.length);
-        } else console.log("Error on news API");
+        setNews((prev) => data);
+        console.log('News Fetched: ', data);
       })
       .catch(err => console.log(err))
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedItem]);
+  }, []);
   console.log('from localStorage', JSON.parse(localStorage.getItem('coins')))
   return (
     <React.Fragment>
       <div className="home-content">
         {news ? (
           news.map(
-            (
-              { content, description, publishedAt, source, title, urlToImage },
-              index,
-            ) => (
-              <div className="data-home" key={index}>
+            ({ content, description, publishedAt, source, title, urlToImage, image, url },index) => 
+            
+              <div className="data-home" key={index} 
+                onClick={() =>
+                  {
+                    setSelectedItem(prev => [title, url])
+                    setToggle(prev => !prev)
+                  }
+                }
+              >
                 <div className="date">
                   <h5>{source.name}</h5>
                   <TimeAgoFormat date={publishedAt} />
                 </div>
-                {urlToImage && <img src={urlToImage} alt={source.name} />}
+                <div className="image-wrapper">
+
+                {urlToImage? 
+                  <img src={urlToImage} alt={source.name} />
+                  :<img src={image} alt={source.name} /> }
+                </div>
 
                 <h3>{title.toLocaleString("en-US")}</h3>
                 {description && (
                   <p dangerouslySetInnerHTML={{ __html: `${description}` }}></p>
                 )}
               </div>
-            ),
           )
         ) : (
           <div className="home-content">Loading...</div>

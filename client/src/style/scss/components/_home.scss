@@ -1,15 +1,18 @@
 .home-container {
-    margin: 0 1em;
+    margin: 0 auto;
     // max-width: 800px;
+    width: 100%;
     .head {
         max-width: 800px;
         margin: 0 auto;
+        padding-bottom: 1em;
 
         h2 {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: .4em;
+            margin: 0 0.5em;
         }
         span {
             font-size: 0.7rem;
@@ -22,8 +25,9 @@
         display: flex;
         justify-content: center;
         // flex-direction: column;
-        margin: 0 auto;
-        max-width: 900px;
+        padding: 0 1em;
+        margin: auto;
+        max-width: 800px;
         min-height: 3em;
         flex-wrap: wrap;
 
@@ -35,10 +39,7 @@
             display: grid;
             grid-template-columns: repeat( auto-fit, minmax(300px, 800px) );
             grid-gap: 1em;
-            // grid-auto-rows: max-content;
-            // grid-auto-flow: dense;
-            // break-inside: avoid;
-            // grid-auto-rows: 40px;
+
         }
     }
 
@@ -46,33 +47,40 @@
 .data-home {
     img
     {
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            -ms-border-radius: 4px;
-            -o-border-radius: 4px;
-            max-width: 100%;
+            width: 100%;
             object-fit: cover;
-            min-height: 3em;
     }
     .date {
         display: flex;
         width: 100%;
         justify-content: space-between;
         h5 {color: #31f5b4;letter-spacing: 0.04em;}
-        p{color: #777;font-size: 0.7rem;}
+        span{color: #777;font-size: 0.8rem;}
     }
+
+    .image-wrapper {
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        max-width: 100%;
+        object-fit: cover;
+        min-height: 3em;
+        overflow: hidden;
+    }
+
     h3 {color: #DDD;}
     p {color: #888;}
     
-    margin: 0em auto;
-    max-width: 30rem;
+    // margin: 0em auto;
+    width: 100%;
     background-color: #171717;
     padding: 2em 1em;
     padding-top: 1em;
     border-radius: 8px;
     border: 0.5px solid;
-    border-color: rgba($color: #555, $alpha: 0.8);
+    border-color: rgba($color: #555, $alpha: 0.2);
 
     display: flex;
     gap: 1em;
@@ -80,6 +88,19 @@
     // grid-row-start: span 2;
     flex-direction: column;
     vertical-align: middle;
+    transition: 0.2s linear;
+
+    &:hover, &:focus {
+        transform: scale(0.98);
+        background-color: #252525;
+        border-color: rgba($color: #555, $alpha: 0.8);
+
+        img {
+        transform: scale(1.05);
+        transition: 0.4s ease-in;
+    }
+    }
+    
 
 }
 @media screen and (min-width: 800px) {

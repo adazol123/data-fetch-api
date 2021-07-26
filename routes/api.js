@@ -31,7 +31,8 @@ router.get('/trends', async (request, response) => {
 router.get('/news', async (request, response) => {
   try {
     const coins = await Crypto.find()
-    const [{news_data}] = coins
+    const [news_data] = coins
+    console.log(news_data)
     console.log('🌐  Fetched - News V1:',response.statusCode)
     return response.status(200).json(news_data)
   } catch (error) { return response.json({message: error})}
