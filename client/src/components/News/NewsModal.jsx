@@ -1,18 +1,18 @@
 import React, { useContext } from 'react'
-import { useMotionValue, motion } from 'framer-motion'
+import { useMotionValue, motion, AnimatePresence } from 'framer-motion'
 import DataContext from '../../util/DataContext';
 
 const NewsModal = () => {
     const { toggle, setToggle, selectedItem} = useContext(DataContext)
     return (
-        <>
+        <AnimatePresence>
         {toggle &&
         (<Wrapper toggle={toggle} setToggle={setToggle}> 
             <p className='modal-info'>Do you want to visit?</p>
             <p className='modal-subtitle'>{selectedItem[0]}</p>
-            {/* <p className="modal-link">URL: 
-                <span className='url'> {selectedItem[1]}</span>
-            </p> */}
+            <p className="modal-link">Source: 
+                <span className='url'> {selectedItem[1].name}</span>
+            </p>
             <div className="modal-footer">
                 <button onClick={() =>
                     setToggle(prev => false)
@@ -27,7 +27,7 @@ const NewsModal = () => {
             </div>
         </Wrapper>)
         }
-        </>
+        </AnimatePresence>
     )
 }
 
@@ -51,8 +51,7 @@ const Wrapper = ({toggle, setToggle, children, ...rest}) => {
       };
 
     return (
-    
-    <div className="modal-wrapper"
+    <motion.div className="modal-wrapper"
 
     >
         <div className="modal-backdrop"
@@ -78,7 +77,7 @@ const Wrapper = ({toggle, setToggle, children, ...rest}) => {
                 {children}
             </div>
         </motion.div>
-    </div>)
+    </motion.div>)
 }
 
 export default NewsModal

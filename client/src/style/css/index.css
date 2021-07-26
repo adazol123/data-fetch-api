@@ -945,8 +945,8 @@ img[alt=sample-assets] {
   border-color: rgba(85, 85, 85, 0.8);
 }
 .data-home:hover img, .data-home:focus img {
-  transform: scale(1.05);
-  transition: 0.4s ease-in;
+  transform: scale(1.02);
+  transition: 0.2s ease-in;
 }
 
 @media screen and (min-width: 800px) {
@@ -1131,7 +1131,7 @@ img[alt=sample-assets] {
 }
 .modal-content .modal-info {
   margin-bottom: 0.5em;
-  color: #555;
+  color: #444;
   font-size: 1rem;
 }
 .modal-content .modal-subtitle {
@@ -1141,7 +1141,7 @@ img[alt=sample-assets] {
 .modal-content .modal-link {
   color: #888;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;

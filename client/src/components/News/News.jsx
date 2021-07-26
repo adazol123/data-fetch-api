@@ -29,7 +29,7 @@ const News = () => {
               <div className="data-home" key={index} 
                 onClick={() =>
                   {
-                    setSelectedItem(prev => [title, url])
+                    setSelectedItem(prev => [title, source])
                     setToggle(prev => !prev)
                   }
                 }
