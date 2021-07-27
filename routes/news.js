@@ -6,7 +6,7 @@ const { format } = require('timeago.js')
 
 
 const newsData = async (type, query, sortBy, country, key, token ) => {
-    let url_newsapi = `https://newsapi.org/v2/everything?${query}${sortBy}&language=en&apiKey=${key}`
+    let url_newsapi = `https://newsapi.org/v2/top-headlines?category=business${sortBy}${country}&language=en&apiKey=${key}`
     let url_gnews = `https://gnews.io/api/v4/${type}?${query}${country}${sortBy}$&lang=en&token=${token}`
     try {
         let response_news  = await  fetch(url_newsapi)
@@ -14,7 +14,7 @@ const newsData = async (type, query, sortBy, country, key, token ) => {
         let response_gnews = await  fetch(url_gnews)
         let response2 =  response_gnews.json()
         const data = await Promise.all([response1, response2])
-        console.log( "✅ Dual fetch success!")
+        console.log( "✅ Dual fetch success!" , url_newsapi)
         return data
         
     } catch (error) {

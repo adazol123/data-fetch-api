@@ -10,7 +10,7 @@ const News = () => {
     console.log("fetching...");
     axios
       .get("/api/news")
-      .then((response) => response.data.news_data)
+      .then((response) => response.data.result)
       .then((data) => {
         setNews((prev) => data);
         console.log('News Fetched: ', data);
@@ -29,7 +29,7 @@ const News = () => {
               <div className="data-home" key={index} 
                 onClick={() =>
                   {
-                    setSelectedItem(prev => [title, source])
+                    setSelectedItem(prev => [title, url, source])
                     setToggle(prev => !prev)
                   }
                 }

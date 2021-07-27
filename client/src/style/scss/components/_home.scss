@@ -49,6 +49,7 @@
     {
             width: 100%;
             object-fit: cover;
+            pointer-events: none;
     }
     .date {
         display: flex;
@@ -88,17 +89,13 @@
     // grid-row-start: span 2;
     flex-direction: column;
     vertical-align: middle;
-    transition: 0.2s linear;
+    transition: 0.1s ease;
 
     &:hover, &:focus {
-        transform: scale(0.98);
+        transform: scale(0.99);
         background-color: #252525;
         border-color: rgba($color: #555, $alpha: 0.8);
 
-        img {
-        transform: scale(1.02);
-        transition: 0.2s ease-in;
-    }
     }
     
 

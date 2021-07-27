@@ -36,7 +36,7 @@ const CoinTable = () => {
   useEffect(() =>{
     setStatus((prev) => "Fetching Data from API ...")
     axios.get('/api/coins')
-      .then(response => response.data)
+      .then(response => response.data.result)
       .then(data => {
         setStatus((prev) => " ")
         setPrice_btc(prev => data[0].current_price)

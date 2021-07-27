@@ -13,10 +13,9 @@ const CoinFilter =() => {
             placeholder='Search coins'
             onChange={(event) => setFilter(prev => event.target.value)}  />
         <button
-            onClick={(event) => setFilter(prev => '')} disabled={filter.length === 0? true: false}>
-                <p>
-                    {filter.length > 0? 'Cancel' : ''}
-                </p>
+            style={{ pointerEvents: filter.length > 0? 'auto' : 'none' }}
+            onClick={(event) => setFilter(prev => '')}>
+                <p>{filter.length > 0? 'Cancel' : ''}</p>
         </button>
         </div>
     )

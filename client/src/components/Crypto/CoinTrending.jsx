@@ -8,15 +8,15 @@ const CoinTrending = () => {
 
     useEffect(() => {
         axios.get('/api/trends')
-            .then(response => response.data)
+            .then(response => response.data.result)
             .then(data => {
-                console.log('fetching trends:', data)
+                console.log('fetching trends:', data.coins)
                 return setTrendsData(prev => data.coins)
             })
             .catch(error => console.log('error on trends:', error))
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-
+    
     const container = {
         hidden: { opacity: 1, x: 0},
         visible: { 

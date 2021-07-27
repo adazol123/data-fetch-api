@@ -26,6 +26,7 @@ a {
 }
 a:active, a:hover, a:focus {
     color: #31f5b4;
+        transform: scale(0.98);
 }
 
 input, button {
@@ -39,7 +40,9 @@ input, button {
 button {
     border-color: transparent;
     cursor: pointer;
-    
+    &:focus, &:hover{
+        background-color: rgba($color: #AAA, $alpha: 0.05);
+    }
 }
 
 .about {

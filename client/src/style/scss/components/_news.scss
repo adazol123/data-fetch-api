@@ -1,116 +1,249 @@
-
-
 .modal {
+  &-wrapper {
+    background-color: transparent;
+    position: fixed;
+    width: calc(100%);
+    bottom: 0;
+    z-index: 102;
 
-    &-wrapper {
-        background-color: transparent;
-        position: fixed;
-        width: calc(100%);
-        bottom: 0;
-        z-index: 102;
-    }
-    &-backdrop{
-        position: fixed;
-        height: 100vh;
-        width: 100vw;
-        top: 0;
-        z-index: 100;
-        backdrop-filter: blur(4px);
-        background-color: rgba(0, 0, 0, 0.6);
-        cursor: pointer;
-        transition: 0.8s ease-out;
+  }
+  &-backdrop {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    z-index: -1;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: 0.8s ease-out;
+    outline-style: none;
+  }
+  &-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding-top: 0.2em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    z-index: 101;
+    background-color: #252525;
+    max-width: 800px;
+    margin: 0 auto;
 
+    &::before {
+      content: "";
+      cursor: grab;
+      position: absolute;
+      background-color: #666;
+      height: 4px;
+      width: 4em;
+      z-index: -1;
+      left: 50%;
+      top: 0.4em;
+      border-radius: 4px;
+      transform: translateX(-50%);
+      box-shadow: 0px 1px 1px 1px rgba($color: #000000, $alpha: 0.1);
     }
-    &-container{
-        position: relative;
-        height: 100%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: inherit;
+      bottom: -200vh;
+      height: 200vh;
+      width: 100%;
+      left: 0;
+    }
+    .close-button {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        top: 2.5em;
+        right: 1.7em;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+
+        &:hover, &:focus {
+            background-color: transparent;
+            color: #31f5b4;
+            border-color:
+            rgba($color:
+            #31f5b4,$alpha: 1);
+            transform: scale(0.97);
+
+}
+        transition: 0.2s ease-out;
+        -webkit-transition: 0.2s ease-out;
+        -moz-transition: 0.2s ease-out;
+        -ms-transition: 0.2s ease-out;
+        -o-transition: 0.2s ease-out;
+    }
+
+
+  }
+
+  &-content {
+    margin: 0em;
+    margin-top: 1em;
+    padding: 1em;
+    z-index: 101;
+    background-color: #222;
+    box-shadow: 0px 2px 3px -2px rgba(#0000, 0.4) inset;
+
+    .modal {
+      &-footer {
+        display: flex;
         width: 100%;
-        padding-top: 0.2em;
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
-        z-index: 101;
-        background-color: #252525;
-
-        &::before {
-            content: '';
-            cursor: grab;
-            position: absolute;
-            background-color: #AAA;
-            height: 4px;
-            width: 6em;
-            left: 50%;
-            top: 0.4em;
-            border-radius: 4px;
-            transform: translateX(-50%);
-            box-shadow: 0px 1px 1px 1px rgba($color: #000000, $alpha: 0.1);
+        gap: 1em;
+        justify-content: center;
+        margin-top: 1em;
+        button,
+        a {
+          width: 100%;
+          padding: 1em 2em;
+          border-radius: 4px;
+          font-size: 0.85rem;
+          letter-spacing: 0.04em;
         }
-
-        &::after{
-            content: '';
-            position: absolute;
-            background-color: inherit;
-            bottom: -200vh;
-            height: 200vh;
-            width: 100%;
-            left: 0;
-
+        a {
+          color: #31f5b4;
+          background-color: rgba($color: #aaa, $alpha: 0.1);
+          text-align: center;
         }
+      }
+      &-info {
+        margin-bottom: 0.5em;
+        color: #444;
+        font-size: 1rem;
+      }
+      &-subtitle {
+        color: #aaa;
+        font-size: 1.2rem;
+      }
+      &-link {
+        color: #888;
+        font-weight: 300;
+        font-size: 1rem;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        white-space: wrap;
+        text-overflow: ellipsis;
+        .url {
+          color: rgba(#31f5b4, 0.8);
+        }
+      }
     }
 
-    &-content{
-        margin: 0em;
-        margin-top: 1em;
-        padding: 1em;
-        z-index: 101;
-        background-color: #222;
-
-
-        .modal {
-            &-footer{
-
-                display: flex;
-                width: 100%;
-                gap: 1em;
-                margin-top: 1em;
-                button{
-                    width: 100%;
-                    padding: 1em 2em;
+    .modal-head{
+        display: flex;
+        gap: 1rem;
+        padding-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        .modal-price {
+            .price {
+                & :nth-child(2) {
+                    font-size: medium;
+                    max-width: fit-content;
+                    padding: 0.1em 0.4em;
                     border-radius: 4px;
-                    font-size: 0.85rem;
-                    letter-spacing: 0.04em;
-                    a{
-                        color: #31f5b4;
-                    }
+                    -webkit-border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -ms-border-radius: 4px;
+                    -o-border-radius: 4px;
+}
+                & :nth-child(1) {
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    margin-bottom: 0.2em;
+                }
+                .red {
+                    color: #f80f68;
+                    position: relative;
+                    background-color: rgba(247, 48, 170, 0.07);
+
+                }
+                .green {
+                    color: #31f5b4;
+                    background-color: rgba(48, 247, 214, 0.07);
+                    position: relative;      
 
                 }
             }
-            &-info{
-                margin-bottom: 0.5em;
-                color: #444;
-                font-size: 1rem;
-            }
-            &-subtitle{
-                color: #AAA;
-                font-size: 1.2rem;
-            }
-            &-link {
-                color: #888;
-                font-weight: 300;
-                font-size: 1.1rem;
 
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 1;
-                white-space: wrap;
-                text-overflow: ellipsis;
-                .url {
-                    color: rgba(#31f5b4, 0.8);
-                }
-            }
         }
 
+    }
+    h2{
+        color: #AAA;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 0.1rem;
+    }
+    img {
+        height: 80px;
+        border-radius: 1em;
+        //padding: 0 auto;
+        -webkit-border-radius: 1em;
+        -moz-border-radius: 1em;
+        -ms-border-radius: 1em;
+        -o-border-radius: 1em;
+}
 
+    .description {
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        white-space: wrap;
+        text-overflow: ellipsis;
+        width: 98%;
+        margin: 0 auto;
+        margin-bottom: 2em;
+
+        color: #888;
+        & a {
+            color: #888;
+           pointer-events: none;
+        }
+    }
+    .modal-expand-button {
+        border: 0.1px solid;
+        border-color: rgba($color: #666, $alpha: 0.4);
+        bottom: 2%;
+        padding: 1em 0;
+        margin: 0 auto;
+        width: calc(100%);
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        transform: scale(.98);
+    
+        &:hover, &:focus {
+            background-color:
+            rgba($color:
+            #333,$alpha: 1);
+            color: #31f5b4;
+            border-color:
+            rgba($color:
+            #31f5b4,$alpha: 0.4);
+            transform: scale(1);
+    }
+        transition: 0.2s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -ms-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
     }
     
+  }
 }
