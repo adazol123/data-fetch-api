@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import fetch from 'node-fetch'
-import DataContext from '../../util/DataContext'
 import CoinChart from '../Crypto/CoinChart'
+import DataContext from '../../util/DataContext'
+
 
 
 const fetcher = async (url) => {
@@ -13,12 +15,14 @@ const fetcher = async (url) => {
 
 
 const CoinUpdate = () => {
+    let {id} = useParams()
+    const { selectedItem} = useContext(DataContext);
     const [currentData, setCurrentData] = useState([])
-    const { selectedItem } = useContext(DataContext);
+    console.log(selectedItem)
 
     const loadData = async () => {
         try {
-            let fetch = await fetcher(`/api/backend/coin/${selectedItem.id}`)
+            let fetch = await fetcher(`/api/backend/coin/${id}`)
             let response = await fetch.coin
             return response
         } catch (error) {
@@ -27,7 +31,9 @@ const CoinUpdate = () => {
 
     }
     useEffect(() => {
+        console.log('test');
         loadData().then(data => setCurrentData(prev => data))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if(currentData.length < 1) return <h3 className='coin-loader'>loading . . .</h3>
@@ -35,6 +41,7 @@ const CoinUpdate = () => {
     const {description, relevant_resources, emission_type_precise, ...others} = currentData.token_details
     return (
         <div className='coin-container'>
+            <div className="coin-wrapper">
             <div className="coin-header">
                 <div className="coin-header-left">
                     <h1 className="coin-title">{currentData.name} <span>({currentData.symbol.toUpperCase()})</span></h1>
@@ -42,7 +49,7 @@ const CoinUpdate = () => {
                 </div>
                 <img className='coin-image' src={currentData.image.small} alt={currentData.id} />
             </div>
-            <CoinChart />
+            <CoinChart selectedItem={selectedItem} />
             
                 <h2 className="coin-subtitle">Overview</h2>
             <div className="coin-overview">
@@ -61,7 +68,7 @@ const CoinUpdate = () => {
             
             <h2 className="coin-subtitle">About <span>{currentData.name}</span></h2>
             <p className="coin-description" dangerouslySetInnerHTML={{ __html: `${currentData.description}`}}/>
-
+            </div>
         </div>
     )
    

@@ -33,7 +33,7 @@ router.post('/create', async ( request, response) => {
  */
 
 const getCoins = async (type, category, per_page, currency, page, order, sparkline, price_change) => {
-  const url = `https://api.coingecko.com/api/v3/${type}/${category}?vs_currency=${currency}${per_page}&page=${page}`
+  const url = `https://api.coingecko.com/api/v3/${type}/${category}?vs_currency=${currency}${per_page}&sparkline=true&page=${page}`
   try {
     const response = await fetch(url)
     const data_coin =  await response.json()
@@ -55,7 +55,7 @@ router.get("/crypto/:type/:category", async (request, response) => {
       order: order? `&order=${order}`: '', //market_cap_desc, gecko_desc, gecko_asc, market_cap_asc, market_cap_desc, volume_asc, volume_desc, id_asc, id_desc
       per_page: per_page? `&per_page=${per_page}`:'', //valid values: 1..250
       page: page? `&page=${page}`: '',
-      sparkline: sparkline? `&parkline=${sparkline}`: '',
+      sparkline: sparkline? `&sparkline=${sparkline}`: '',
       price_change: price_change? `&price_change_percentage=${price_change}`: '', //price change percentage in 1h, 24h, 7d, 14d, 30d, 200d, 1y (eg. '1h,24h,7d' comma-separated,
       market_chart: `/market_chart`
     }

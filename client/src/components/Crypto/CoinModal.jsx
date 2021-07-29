@@ -20,7 +20,7 @@ const CoinModal = () => {
         <Modal toggle={showCoin} setToggle={setShowCoin}>
           <CloseIcon isClosed={setShowCoin} />
           <Header selectedItem={selectedItem} />
-          <CoinChart />
+          <CoinChart selectedItem={selectedItem} />
 
           <Link to={`/crypto/${selectedItem.id}`}>
             <button

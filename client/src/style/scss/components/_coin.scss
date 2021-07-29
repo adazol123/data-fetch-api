@@ -5,7 +5,12 @@
     flex-wrap: wrap;
     flex-direction: column;
     background: #222;
-    min-height: 100vh;
+    min-height: calc(100vh - 42px);
+    .coin-wrapper {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
     .coin-description {
         color: #888;
         a {
@@ -17,6 +22,8 @@
         width: 48px;
         height: 48px;
         margin-left: 2em;
+        border-radius: 8px;
+        pointer-events: none;
 
     }
     .coin-title {
@@ -45,7 +52,7 @@
 }
 
 .coin-loader {
-    min-height: 100vh;
+    min-height: calc(100vh - 42px);
     width: 100%;
     display: grid;
     place-items: center;

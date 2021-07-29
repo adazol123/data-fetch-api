@@ -1,13 +1,12 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import DataContext from "../../util/DataContext";
+import React, { useEffect, useState } from "react";
+
 import { format, parseISO } from "date-fns";
 import CoinAreaChart from "../Chart/CoinAreaChart";
 import CoinChartButton from "../Chart/CoinChartButton";
 const currency_format = { maximumFractionDigits: 2, minimumFractionDigits: 2};
 
-const CoinChart = () => {
-  const { selectedItem } = useContext(DataContext);
+const CoinChart = ( {selectedItem}) => {
   const [prices, setPrices] = useState([]);
   const [days, setDays] = useState("1");
   const [interval, setDataInterval] = useState("minutely");
