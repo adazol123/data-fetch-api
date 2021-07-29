@@ -4,16 +4,52 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 1em;
     background: #222;
+    min-height: 100vh;
     .coin-description {
         color: #888;
-        margin-top: 0.5rem;
         a {
             color: #888;
             pointer-events: none;
         }
     }
+    .coin-image {
+        width: 48px;
+        height: 48px;
+        margin-left: 2em;
+
+    }
+    .coin-title {
+        font-size: xx-large;
+        font-weight: 500;
+        line-height: 1.5em;
+        & span {
+            color: #31f5b4;
+        }
+    }
+    .coin-subtitle {
+        font-size: large;
+        margin-bottom: 0.5em;
+    }
+    .coin-tagline{
+        color: #888;
+        font-size: small;
+    }
+
+    .coin-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+}
+
+.coin-loader {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    letter-spacing: 0.04em;
 }
 
 .coin-overview {
@@ -21,20 +57,23 @@
     margin: 0.5em 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    // grid-gap: 0.5em;
+    margin-bottom: 1em;
 
     .row {
         border: 0.2px solid;
-        color: #AAA;
+        color: #777;
         border-color: rgba($color: #777, $alpha: 0.2);
         padding: 0.8em;
+        h4{
+            text-transform: capitalize;
+        }
         p {
             color: #777;
             font-size: 0.9rem;
             font-weight: 200;
             transform-origin: left top;
             transform: scale(0.8);
-            letter-spacing: 0.04em;
+            letter-spacing: 0.06em;
             -webkit-transform: scale(0.8);
             -moz-transform: scale(0.8);
             -ms-transform: scale(0.8);

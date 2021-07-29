@@ -4,8 +4,6 @@
 const mongoose = require('mongoose')
 
 const CryptoSchema = mongoose.Schema({
-  coin_data_v1: Object,
-  coin_data_v2: Object,
   coins_data: Object,
   coin_trends: Object,
   coin_day_1: Object,
@@ -25,6 +23,7 @@ const CryptoSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  coin_selected: Object,
 },{collection: 'root'})
 
 module.exports = mongoose.model('crypto', CryptoSchema)

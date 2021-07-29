@@ -8,15 +8,17 @@ import {AnimateSharedLayout} from 'framer-motion'
 
 function App() {
   const [coins, setCoins] = useState([])
-  const [coinV1, setCoinV1] = useState([])
-  const [coinV2, setCoinV2] = useState([])
-  const [filter, setFilter] = useState('')
-  const [selectedItem, setSelectedItem] = useState(null)
-  const [status, setStatus] = useState('')
-  const [showCoin, setShowCoin] = useState(false)
+  const [currentCoin, setCurrentCoin] = useState([])
   const [news, setNews] = useState([])
   const [trendsData, setTrendsData] = useState([])
+
+  const [filter, setFilter] = useState('')
+  const [status, setStatus] = useState('')
+
+  const [selectedItem, setSelectedItem] = useState(null)
   const [price_btc, setPrice_btc] = useState(0)
+
+  const [showCoin, setShowCoin] = useState(false)
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -34,10 +36,8 @@ function App() {
       setStatus,
       news,
       setNews,
-      coinV1,
-      setCoinV1,
-      coinV2,
-      setCoinV2,
+      currentCoin,
+      setCurrentCoin,
       trendsData,
       setTrendsData,
       price_btc,

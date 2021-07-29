@@ -5,9 +5,11 @@ import { Modal } from "../Modals/Modal";
 const NewsModal = () => {
   const { toggle, setToggle, selectedItem } = useContext(DataContext);
 
+  if(!selectedItem) return <Modal toggle={toggle} setToggle={setToggle}>Loading...</Modal>
+
   return (
-      <>
-    {selectedItem && <Modal toggle={toggle} setToggle={setToggle}>
+
+    <Modal toggle={toggle} setToggle={setToggle}>
       <p className="modal-info">Do you want to visit?</p>
       <p className="modal-subtitle">{selectedItem[0] && selectedItem[0]}</p>
       <p className="modal-link">
@@ -25,8 +27,8 @@ const NewsModal = () => {
         </a>
         <button onClick={() => setToggle((prev) => false)}>Cancel</button>
       </div>
-    </Modal>}
-    </>
+    </Modal>
+
   );
 };
 

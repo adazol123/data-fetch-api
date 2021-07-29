@@ -1,95 +1,36 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext } from "react";
 import DataContext from "../../util/DataContext";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import CoinChart from "./CoinChart";
 import { Modal } from "../Modals/Modal";
 // import DataType from '../../util/DataType'
 
+
+
 const CoinModal = () => {
-  const { selectedItem, showCoin, setShowCoin, setCoinV1, setCoinV2 } =
-    useContext(DataContext);
-  const [coinData, setCoinData] = useState(null);
-  const [dataLoading, setDataLoading] = useState(false);
-  const description = useRef();
 
-  const geckData = async () => {
-    try {
-      const api = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/${selectedItem.id}?localization=true`
-      );
-      const response = await api.data;
-      setCoinData(response);
-      setCoinV1((prev) => response);
-      localStorage.setItem("coinV1", JSON.stringify(response));
-      setDataLoading((prev) => true);
-      console.log("Fetch coin version 1");
-    } catch (error) {
-      console.log('Error on Coin Modal: ', error.message)
-    }
-
-  };
-
-  const messData = async () => {
-    try {
-      const mes = await axios.get(
-        `https://data.messari.io/api/v1/assets/${selectedItem.id}/profile`
-      );
-      const mesdata = await mes.data.data;
-      setCoinV2((prev) => mesdata);
-      localStorage.setItem("coinV2", JSON.stringify(mesdata));
-      console.log("Fetch coin version 2");
-      setDataLoading((prev) => true);
-    } catch (error) {
-      console.log('Error on Coin Modal: ', error.message)
-    }
-    
-  };
-
-  useEffect(() => {
-    setDataLoading(false);
-    try {
-      if (selectedItem) geckData();
-      else console.log(`no data`);
-    } catch (error) {
-      console.log(error);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedItem]);
+  const { selectedItem, showCoin, setShowCoin} = useContext(DataContext);
 
 
+  if(!selectedItem) return null
 
   return (
     <>
-      {selectedItem && (
+
         <Modal toggle={showCoin} setToggle={setShowCoin}>
           <CloseIcon isClosed={setShowCoin} />
           <Header selectedItem={selectedItem} />
           <CoinChart />
-          <p
-            ref={description.current}
-            className="description"
-            dangerouslySetInnerHTML={{
-              __html: `${
-                dataLoading
-                  ? coinData && coinData.description.en
-                  : "loading...."
-              }`,
-            }}/>
 
           <Link to={`/crypto/${selectedItem.id}`}>
             <button
               className="modal-expand-button"
-              onClick={() => {
-                messData();
-              }}
             >
-              {" "}
-              Expand{" "}
+              Expand
             </button>
           </Link>
         </Modal>
-      )}
+
     </>
   );
 };

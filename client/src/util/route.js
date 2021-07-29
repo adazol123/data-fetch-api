@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router-dom'
 import About from '../pages/About';
 import Crypto from '../pages/Crypto';
 import Home from '../pages/Home';
-import Coin from '../components/Coin/Coin'
+import Coin from '../components/Coin/CoinUpdate'
 import PageNotFound from '../pages/PageNotFound';
 
 export const route = () => {

@@ -227,53 +227,83 @@ router.get('/crypto/:type/:coin/:category', async (request, response) => {
  */
 
 
-router.get("/gnews/:head", async (request, response) => {
-  try {
-    const { q, country, sortby, lang } = request.query
-    const param =  {
-      head: request.params.head, //search or top-headlines
-      query: q? `q=${q}`: '', // sample: bitcoin
-      country: country? `&country=${country}`: '&country=ph', //date
-      sortBy: sortby? `&sortby=${sortby}`: '', //publishedAt
-      language: lang? `&lang=${lang}` : '&lang=en', //en
-    }
-    if(q) {
-      response.status(200)
-      const key =  q? process.env.REACT_APP_GNEWS_API_KEY : null
-      const news_url =
-      `https://gnews.io/api/v4/${param.head}?${param.query}${ param.country}${param.sortBy}${param.language}&token=${key}`;
-      console.log( "✅ ",news_url)
-      const fetch_response = await fetch(news_url);
-      const news_data_v2 = await fetch_response.json();
-      const updatedNews = await Crypto.updateOne(
-          { _id: process.env.REACT_APP_MONGO_ATLAS_ID },
-          { $set: {news_data_v2, updated_at : Date.now()} }
-        );
-      console.log("✅  News V2 | Last Update :", format(Date.now(), 'en_US'));
-      return response.json({ 
-        message : news_data_v2.errors || news_data_v2.message , 
-        status: response.statusCode,
-        counts: news_data_v2.articles.length,
-        query: param,
-        data_fetched : format(Date.now(), 'en_US')
-      });
-    }
-    else {
-      response.status(404)
-      console.warn('🔸  The query parameters is required');
-      return response.send({
-        status: response.statusCode,
-        message: '🏴󠁧󠁢󠁳󠁣󠁴󠁿  The query parameters is required',
-        query: param,
-        
-      })
-    }
-   
 
+
+router.get('/coin/:coin', async (request, response) => {
+  try {
+    const param = {
+      type: request.params.type,
+      coin: request.params.coin,
+      localization: request.query.localization? `?localization=${request.query.localization}` : '?localization=true'
+    }
+    const result = await Coin(param.coin, param.localization)
+    typeof undefined === 'undefined'
+    const coin_object = {
+      coin: {  
+        id: result[0].id,
+        symbol: result[0].symbol,
+        name: result[0].name,
+        image: result[0].image,
+        tagline: !result[1].data? null : result[1].data.tagline ,
+        description: !result[1].data? result[0].description.en || null :  result[1].data.overview || result[0].description.en,
+        category: !result[1].data? null : result[1].data.category,
+        sector: !result[1].data? null : result[1].data.sector,
+        token_details: {
+          current_supply: !result[1].data? result[0].market_data.circulating_supply.toLocaleString() : result[1].data.token_distribution.current_supply,
+          max_supply: !result[1].data? result[0].market_data.max_supply.toLocaleString() : result[1].data.token_details.max_supply,
+          description: !result[1].data? null : result[1].data.token_distribution.description,
+          usage: !result[1].data? null : result[1].data.token_details.usage,
+          type: !result[1].data? null : result[1].data.token_details.type,
+          mining_algorithm: !result[1].data? null : result[1].data.token_details.mining_algorithm,
+          emission_type_general: !result[1].data? null : result[1].data.token_details.emission_type_general,
+          emission_type_precise: !result[1].data? null : result[1].data.token_details.emission_type_precise,
+          consensus_algorithm: !result[1].data? null : result[1].data.consensus_algorithm,
+          relevant_resources: !result[1].data? null : result[1].data.relevant_resources
+        },
+        market_data: result[0].market_data,
+        tickets: result[0].tickets,
+        last_updated: result[0].last_updated,
+        is_verified: !result[1].data? null : result[1].data.is_verified,
+      }
+    }
+    console.log('✅  Coin search success!')
+    return response.status(200).json(coin_object);
 
   } catch (error) {
     console.log("🏴󠁧󠁢󠁳󠁣󠁴󠁿  Error on fetch" , error.message  ); 
+    return response.status(404).json({
+      "error message": error.message
+    })
   }
-});
+})
+
+
+
+// fetch data per coin search
+async function Coin(coin, localization) {
+  geck_url = `https://api.coingecko.com/api/v3/coins/${coin}${localization}`
+  mess_url =  `https://data.messari.io/api/v1/assets/${coin}/profile`
+  console.log(geck_url)
+  console.log(mess_url)
+  try {
+    let fetch_gecko = await fetch(geck_url)
+    let response_gecko = fetch_gecko.json()
+    let fetch_messa = await fetch(mess_url)
+    let response_messa = fetch_messa.json()
+
+    const result = await Promise.all([response_gecko,response_messa])
+
+    console.log(' Dual fetch success!', [response_gecko, response_messa] )
+    return result
+
+
+  } catch (error) {
+    console.log("🏴󠁧󠁢󠁳󠁣󠁴󠁿  Error on selected coin" , error.message ); 
+  }
+
+}
+
+
+
 
 module.exports = router

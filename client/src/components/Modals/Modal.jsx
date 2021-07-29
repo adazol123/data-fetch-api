@@ -1,13 +1,14 @@
 import { useMotionValue, motion, AnimatePresence } from "framer-motion";
 
 export function Modal({ toggle, setToggle, children }) {
+
+  if (!toggle) return null
+
   return (
     <AnimatePresence>
-      {toggle && (
         <Wrapper toggle={toggle} setToggle={setToggle}>
           {children}
         </Wrapper>
-      )}
     </AnimatePresence>
   );
 }
