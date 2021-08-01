@@ -4,7 +4,6 @@ import Navbar from './components/Header/Navbar';
 import { route as Route } from './util/route';
 import DataContext from './util/DataContext'
 import PageNavigationListenerUtils from './util/PageNavigationListener.utils';
-import {AnimateSharedLayout} from 'framer-motion'
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -47,10 +46,10 @@ function App() {
   }}>
     <Router>
       <PageNavigationListenerUtils/>    
-      <AnimateSharedLayout type="crossfade">
+
       <Navbar />
       <Route/>
-    </AnimateSharedLayout>
+
     </Router>
     </DataContext.Provider>
   );

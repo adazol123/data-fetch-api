@@ -8,7 +8,7 @@ const path = require("path")
 const cryptoRoute = require("./routes/crypto");
 const newsRoute = require('./routes/news');
 const apiRoute = require("./routes/api");
-const GetDatabase = require('./dababase/connect-crypto')
+const GetDatabase = require('./database/connect-crypto')
 
 
 
@@ -35,11 +35,11 @@ app.use("/api", apiRoute);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
   app.get("*", (request, response) => {
-    response.sendFile(path.join(__dirname, "client/build", "index.html"));
+    response.sendFile(path.resolve(__dirname, "client/build", "index.html"));
   });
 }
 
 
 GetDatabase().then(() => {
-  app.listen(port, () => console.log("👷  Listening to PORT:", port));
+  app.listen(port, () => console.log("👷  Application launched at PORT:", port));
 })

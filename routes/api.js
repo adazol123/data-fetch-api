@@ -1,5 +1,4 @@
 const express = require("express");
-const GetDatabase = require("../dababase/connect-crypto");
 const router = express.Router();
 const Crypto = require("../models/Crypto");
 const News = require("../models/News");
