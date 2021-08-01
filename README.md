@@ -80,4 +80,11 @@ Source Code for this web application is available on [Github Repository](https:/
 
 #### Website [www.adazolhub.com](https://www.adazolhub.com)
 
+Build Version 0.02 | Crypto API
+
+Build Version 0.03 | News API
+
 Build Version 0.04 | Integrating MongoDB
+
+Build Version 0.05 | Optimize database connection
+

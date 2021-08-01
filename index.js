@@ -4,33 +4,13 @@ const bodyParser = require("body-parser")
 const app = express()
 const port = process.env.PORT || "8000"
 const cors = require("cors")
-const mongoose = require("mongoose")
 const path = require("path")
-const uri =
-  process.env.MONGO_URI ||
-  `mongodb+srv://
-  ${process.env.REACT_APP_MONGO_ATLAS_USER}:
-  ${process.env.REACT_APP_MONGO_ATLAS_PW}@cluster0.vddsv.mongodb.net/
-  ${process.env.REACT_APP_MONGO_ATLAS_DB}?retryWrites=true&w=majority`;
 const cryptoRoute = require("./routes/crypto");
 const newsRoute = require('./routes/news');
 const apiRoute = require("./routes/api");
+const GetDatabase = require('./dababase/connect-crypto')
 
-const Schema = async () => {
-  try {
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(
-      "🆗  Database Connected!",
-      process.env.REACT_APP_MONGO_ATLAS_DB
-    );
-  } catch (error) {
-    console.log("😥  MongoDB Error:", error.message);
-     
-  }
-};
+
 
 const heartbeat = () =>
   setInterval(() => {
@@ -40,19 +20,16 @@ const heartbeat = () =>
     );
   }, (6000 * 30));
 
-Schema();
 heartbeat();
 
 //MIDDLEWARES
-app.use(cors(), bodyParser.json(), (req, res, next) => {
-  console.log("🔐  Middleware: cors & body-parser");
-  next();
-});
+app.use(cors(), bodyParser.json());
 
 //ROUTES
 app.use("/api/backend", cryptoRoute);
 app.use("/api/backend/news", newsRoute)
 app.use("/api", apiRoute);
+
 
 //ROOT
 if (process.env.NODE_ENV === "production") {
@@ -61,11 +38,8 @@ if (process.env.NODE_ENV === "production") {
     response.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
-// app.get('/', (request, response) => {
-//   response.send({
-//     Server: 'Development Environment',
-//     Message: 'Welcome to Entrepreneurs Portfolio'
-//   })
-// })
 
-app.listen(port, () => console.log("👷  Listening to PORT:", port));
+
+GetDatabase().then(() => {
+  app.listen(port, () => console.log("👷  Listening to PORT:", port));
+})
