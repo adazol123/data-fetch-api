@@ -8,6 +8,7 @@ const path = require("path")
 const cryptoRoute = require("./routes/crypto");
 const newsRoute = require('./routes/news');
 const apiRoute = require("./routes/api");
+const cryptoRouteV2 = require("./routes/cryptoV2")
 const GetDatabase = require('./database/connect-crypto')
 
 
@@ -28,6 +29,7 @@ app.use(cors(), bodyParser.json());
 //ROUTES
 app.use("/api/backend", cryptoRoute);
 app.use("/api/backend/news", newsRoute)
+app.use("/api/v2", cryptoRouteV2);
 app.use("/api", apiRoute);
 
 

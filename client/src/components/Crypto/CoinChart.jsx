@@ -12,7 +12,9 @@ const CoinChart = ( {selectedItem}) => {
   const [interval, setDataInterval] = useState("minutely");
   const [onLoad, setOnLoad] = useState(true);
   const data = [];
+  if(!selectedItem) return null
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     setOnLoad((prev) => true);
     const getData = async () => {

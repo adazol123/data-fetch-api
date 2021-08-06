@@ -18,7 +18,6 @@ const CoinUpdate = () => {
     let {id} = useParams()
     const { selectedItem} = useContext(DataContext);
     const [currentData, setCurrentData] = useState([])
-    console.log(selectedItem)
 
     const loadData = async () => {
         try {
@@ -37,17 +36,17 @@ const CoinUpdate = () => {
     }, []);
 
     if(currentData.length < 1) return <h3 className='coin-loader'>loading . . .</h3>
-    if(!currentData.token_details) return <h3 className='coin-loader'>No data found</h3>
+    if(!currentData) return <h3 className='coin-loader'>No data found</h3>
     const {description, relevant_resources, emission_type_precise, ...others} = currentData.token_details
     return (
         <div className='coin-container'>
             <div className="coin-wrapper">
             <div className="coin-header">
                 <div className="coin-header-left">
-                    <h1 className="coin-title">{currentData.name} <span>({currentData.symbol.toUpperCase()})</span></h1>
+                    <h1 className="coin-title">{currentData.name} <span>({currentData.symbol && (currentData.symbol.toUpperCase())})</span></h1>
                     <p className="coin-tagline">{currentData.tagline}</p>
                 </div>
-                <img className='coin-image' src={currentData.image.small} alt={currentData.id} />
+                <img className='coin-image' src={currentData.image && currentData.image.small} alt={currentData.id} />
             </div>
             <CoinChart selectedItem={selectedItem} />
             

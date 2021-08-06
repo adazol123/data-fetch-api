@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { lazy, Suspense, useContext } from "react";
 import DataContext from "../util/DataContext";
 import CoinFilter from "../components/Crypto/CoinFilter";
 import CoinTable from "../components/Crypto/CoinTable";
-import CoinModal from "../components/Crypto/CoinModal";
 import CoinTrending from "../components/Crypto/CoinTrending";
+const CoinModal = lazy(() => import("../components/Crypto/CoinModal")) ;
 
 const Crypto = () => {
   const { status } = useContext(DataContext);
@@ -19,7 +19,9 @@ const Crypto = () => {
         <CoinFilter />
       </div>
       <CoinTable />
-      <CoinModal />
+      <Suspense fallback={<h5 className='coin-loader'>Loading ....</h5>}>
+        <CoinModal />
+      </Suspense>
     </div>
   );
 };

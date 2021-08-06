@@ -70,6 +70,6 @@ Source Code for this web application is available on [Github Repository](https:/
 #### Authors [Daniel Lozada](https://www.github.com/adazol123)
 #### Website [www.adazolhub.com](https://www.adazolhub.com)
 
-Build Version 0.05 | Optimize database connection
+Build Version 0.06 | Code Splitting
 
 

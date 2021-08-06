@@ -88,3 +88,5 @@ Build Version 0.04 | Integrating MongoDB
 
 Build Version 0.05 | Optimize database connection
 
+Build Version 0.06 | Code Splitting
+

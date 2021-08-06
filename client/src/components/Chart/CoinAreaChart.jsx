@@ -9,6 +9,7 @@ import {
 } from "recharts";
 
 const CoinAreaChart = ({ data, color,content }) => {
+  if(!data) return <div> no coin found</div>
   return (
     <ResponsiveContainer width="100%" height={130}>
     <AreaChart data={data}>
